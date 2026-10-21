@@ -1,0 +1,18 @@
+package dev.veltraph.client.foraging.supply;
+import java.util.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import dev.veltraph.client.world.BlockPos;
+final class ForagingPurchaseCursorTest {
+    final Object player=new Object(),world=new Object(),connection=new Object(),menu=new Object();
+    final ForagingSupplyRuntime.Scope scope=new ForagingSupplyRuntime.Scope(player,world,connection);
+    final ForagingSupplyRuntime.Stack offer=new ForagingSupplyRuntime.Stack("minecraft:bone_meal","Offer","offer",1,false);
+    final ForagingSupplyBindings.Resource resource=new ForagingSupplyBindings.Resource("minecraft:bone_meal","Bone Meal","bone",64,"shop","Supply","Offer","offer",10,"Purse:");
+    List<ForagingSupplyRuntime.Stack> items(){return new ArrayList<>(Collections.nCopies(36,ForagingSupplyRuntime.Stack.EMPTY));}
+    ForagingSupplyRuntime.Observation obs(List<ForagingSupplyRuntime.Stack> items,long purse,Object currentMenu,boolean empty){return new ForagingSupplyRuntime.Observation(scope,10,items,empty,true,purse,currentMenu,currentMenu==null?"":"Supply",List.of(),true,false);}
+    ForagingSupplyBindings bindings(){return new ForagingSupplyBindings(1,new BlockPos(0,70,0),new BlockPos(1,70,0),"Chest",Map.of(ForagingSupplyConfig.Type.BONEMEAL,resource,ForagingSupplyConfig.Type.SAPLING,new ForagingSupplyBindings.Resource("minecraft:dark_oak_sapling","Sapling","sapling",64,"shop","Supply","Offer","offer",10,"Purse:")),1000);}
+    final class Port implements ForagingSupplyRuntime.Port {int clicks,releases;ForagingPurchaseCursor receipt=new ForagingPurchaseCursor(scope,menu,2,offer,items(),100);public boolean acquire(ForagingSupplyRuntime.Observation o,ForagingSupplyBindings.Resource r){clicks++;return true;}public boolean open(ForagingSupplyRuntime.Observation o){return true;}public boolean store(ForagingSupplyRuntime.Observation o,int slot){throw new AssertionError("Prediction must not store");}public boolean verifyStorage(ForagingSupplyRuntime.Observation o){return true;}public boolean ownedPurchasePrediction(ForagingSupplyRuntime.Observation o){return receipt.permits(o,menu,2,offer);}public void release(){releases++;}}
+    @Test void issuedExactPredictedCursorWaitsWithoutRetryOrAcceptance(){var runtime=new ForagingSupplyRuntime();var port=new Port();runtime.start(obs(items(),100,null,true),bindings(),ForagingSupplyConfig.Type.BONEMEAL);runtime.tick(obs(items(),100,null,true),port);runtime.tick(obs(items(),100,menu,false),port);assertEquals(ForagingSupplyRuntime.Stage.ACQUIRE_ACK,runtime.stage());assertEquals(1,port.clicks);assertEquals(0,port.releases);assertEquals(0,runtime.acquiredCost());}
+    @Test void sameTitleForeignMenuAndDifferentCursorDeny(){var receipt=new ForagingPurchaseCursor(scope,menu,2,offer,items(),100);assertFalse(receipt.permits(obs(items(),100,new Object(),false),menu,2,offer));assertFalse(receipt.permits(obs(items(),100,menu,false),menu,2,new ForagingSupplyRuntime.Stack("minecraft:emerald","Emerald","x",3,false)));assertFalse(receipt.permits(obs(items(),100,menu,false),menu,3,offer));}
+    @Test void partialDeliveryOrPurseChangeCannotRemainOwnedPrediction(){var port=new Port();var changed=items();changed.set(9,new ForagingSupplyRuntime.Stack("minecraft:bone_meal","Bone Meal","bone",63,false));assertFalse(port.receipt.permits(obs(changed,90,menu,false),menu,2,offer));var runtime=new ForagingSupplyRuntime();runtime.start(obs(items(),100,null,true),bindings(),ForagingSupplyConfig.Type.BONEMEAL);runtime.tick(obs(items(),100,null,true),port);runtime.tick(obs(changed,90,menu,false),port);assertEquals(ForagingSupplyRuntime.Stage.UNKNOWN,runtime.stage());assertEquals(1,port.clicks);}
+}

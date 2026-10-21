@@ -1,0 +1,24 @@
+package dev.veltraph.client.garden.visitor.history;
+
+import org.junit.jupiter.api.Test;
+import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+class VisitorLogbookReaderTest extends VisitorHistoryTestSupport {
+    @Test void literalPagePrefixLastIntegerSubtractsOne(){assertEquals(2,VisitorLogbookReader.parsePageMinusOne(List.of("TEST page 3"),"TEST page").orElseThrow());}
+    @Test void malformedOrDuplicatePageFooterIsUnknown(){assertTrue(VisitorLogbookReader.parsePageMinusOne(List.of("TEST page many"),"TEST page").isEmpty());assertTrue(VisitorLogbookReader.parsePageMinusOne(List.of("TEST page 2","TEST page 3"),"TEST page").isEmpty());}
+    @Test void multiPageReadMergesSeenFlagsOnlyAfterFinalReceivedPage(){var r=reader();r.start(request(1,0,-1,true),0);r.observe(page(2,1,1,0,List.of(visitor(10,"Beth",true),next(1))),context(),1);assertTrue(r.completion().isEmpty());assertEquals(53,r.preparedNextSlot().orElseThrow());assertTrue(r.bindNextRequest(request(3,2,53,false),context(),2));r.observe(page(4,3,3,1,List.of(visitor(10,"Jacob",false))),context(),3);var b=r.completion().orElseThrow();assertEquals(Set.of("Beth"),b.seenNames());assertEquals(Set.of("Beth","Jacob"),b.knownNames());}
+    @Test void cancelledPartialReadCannotErasePriorStore()throws Exception{var s=store();s.commitBook(book(true,10),context(),10);var r=reader();r.start(request(3,11,-1,true),11);r.observe(page(4,3,12,0,List.of(visitor(10,"Beth",false),next(1))),context(),12);r.cancel();assertTrue(r.completion().isEmpty());assertEquals(VisitorHistoryStore.Newness.SEEN,s.observe(context(),"Beth",13,100).newness());}
+    @Test void partialOrLocalSnapshotCannotComplete(){var r=reader();r.start(request(1,0,-1,true),0);var p=new VisitorLogbookReader.Page(context(),menu,4,0,"TEST logbook",true,false,2,1,1,List.of(visitor(10,"Beth",true)));r.observe(p,context(),1);assertTrue(r.completion().isEmpty());}
+    @Test void foreignPageCancelsWithoutCompletion(){var r=reader();r.start(request(1,0,-1,true),0);var p=new VisitorLogbookReader.Page(context(),new Object(),4,0,"TEST logbook",true,true,2,1,1,List.of());r.observe(p,context(),1);assertEquals(VisitorLogbookReader.State.CANCELLED,r.state());}
+    @Test void staleRequestAssociationCannotComplete(){var r=reader();r.start(request(3,0,-1,true),0);r.observe(page(4,1,1,0,List.of(visitor(10,"Beth",true))),context(),1);assertTrue(r.completion().isEmpty());}
+    @Test void actualFirstPageOpenMustBeKnown(){var r=reader();assertFalse(r.start(request(1,0,53,false),0));assertTrue(r.completion().isEmpty());}
+    @Test void staleOpeningDoesNotReceiveFreshDeadline(){var r=reader();assertFalse(r.start(request(1,0,-1,true),1000));}
+    @Test void requestMustTargetActualPreparedArrow(){var r=reader();r.start(request(1,0,-1,true),0);r.observe(page(2,1,1,0,List.of(visitor(10,"Beth",true),next(1))),context(),1);assertFalse(r.bindNextRequest(request(3,2,52,false),context(),2));}
+    @Test void skippedPageFailsCoverage(){var r=reader();r.start(request(1,0,-1,true),0);r.observe(page(2,1,1,0,List.of(visitor(10,"Beth",true),next(3))),context(),1);assertEquals(VisitorLogbookReader.State.FAILED,r.state());}
+    @Test void duplicateVisitorOnLaterPageFailsCoverage(){var r=reader();r.start(request(1,0,-1,true),0);r.observe(page(2,1,1,0,List.of(visitor(10,"Beth",true),next(1))),context(),1);r.bindNextRequest(request(3,2,53,false),context(),2);r.observe(page(4,3,3,1,List.of(visitor(10,"Beth",false))),context(),3);assertEquals(VisitorLogbookReader.State.FAILED,r.state());assertTrue(r.completion().isEmpty());}
+    @Test void originalDeadlineIsNotExtendedByPages(){var r=reader();r.start(request(1,0,-1,true),0);r.observe(page(2,1,900,0,List.of(visitor(10,"Beth",true),next(1))),context(),900);r.bindNextRequest(request(3,901,53,false),context(),901);r.observe(page(4,3,1000,1,List.of(visitor(10,"Jacob",true))),context(),1000);assertEquals(VisitorLogbookReader.State.FAILED,r.state());}
+    @Test void onlySlotsTenThroughFortyFourContributeVisitors(){var r=reader();r.start(request(1,0,-1,true),0);r.observe(page(2,1,1,0,List.of(visitor(9,"ignore9",true),visitor(10,"Beth",true),visitor(44,"Jacob",false),visitor(45,"ignore45",true))),context(),1);assertEquals(Set.of("Beth","Jacob"),r.completion().orElseThrow().knownNames());}
+    @Test void excludedFooterNeverBecomesVisitor(){var r=reader();r.start(request(1,0,-1,true),0);var footer=new VisitorLogbookReader.Row(10,true,true,"minecraft:paper","Footer",List.of("TEST excluded1"));r.observe(page(2,1,1,0,List.of(footer,visitor(11,"Beth",true))),context(),1);assertEquals(Set.of("Beth"),r.completion().orElseThrow().seenNames());}
+    @Test void clockRollbackRetiresWholeRead(){var r=reader();r.start(request(1,5,-1,true),5);r.observe(null,context(),4);assertEquals(VisitorLogbookReader.State.FAILED,r.state());}
+}

@@ -1,0 +1,15 @@
+package dev.veltraph.client.fishing.offense;
+
+import dev.veltraph.client.navigation.TravelHeading;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+final class FishingDeclaredDeadlineBudgetTest {
+    private FishingOffenseController.Frame frame(long now,int mana,long revision,long ability,float health,boolean held,boolean rod,boolean position,boolean view){return new FishingOffenseController.Frame(now,true,true,true,1,1,false,true,held,true,mana,revision,ability,health,82,true,rod,position,view,true);}
+    private FishingOffenseController inNativeRecordedViewRestore(long timeout){var c=new FishingOffenseController();var p=new FishingOffenseProfile("minecraft:diamond_sword","Skill",List.of("Skill"),"minecraft:silverfish","Skill {target}",100,100L,100L,timeout,1);c.start(frame(0,500,1,0,8,false,true,false,false),p,100);c.tick(frame(1,500,1,0,8,false,true,false,false),100);c.tick(frame(2,500,1,0,8,false,true,false,false),100);assertEquals(FishingOffenseController.Action.USE,c.tick(frame(100,500,1,0,8,true,false,false,false),100));c.tick(frame(350,400,2,1,5,true,false,false,false),100);c.tick(frame(400,400,2,1,5,true,false,false,false),100);c.tick(frame(450,400,2,1,5,false,true,false,false),100);assertEquals(FishingOffenseController.Action.RESTORE_VIEW,c.tick(frame(2400,400,2,1,5,false,true,true,false),100));return c;}
+    @Test void unchangedHeadingReproducesNativeFAndNeedsFourMoreTurns(){var yaw=new TravelHeading();var pitch=new TravelHeading();float y=-19.69513f,p=82.25531f;int firstReceipt=-1;for(int turn=1;turn<=23;turn++){y=yaw.step(y,-90,1);p=pitch.stepLinear(p,15,1);if(turn==19){assertEquals(-87.61627f,y,.0001f);assertEquals(17.102163f,p,.0001f);assertFalse(Math.abs(-90-y)<1&&Math.abs(15-p)<1);}if(firstReceipt<0&&Math.abs(-90-y)<1&&Math.abs(15-p)<1)firstReceipt=turn;}assertEquals(23,firstReceipt);}
+    @Test void actualShortReturnBudgetExpiresWithoutInventingViewReceipt(){var c=inNativeRecordedViewRestore(3000);assertEquals(FishingOffenseController.Action.RELEASE,c.tick(frame(3351,400,2,1,5,false,true,true,false),100));assertEquals(FishingOffenseController.State.FAILED,c.state());assertTrue(c.failure().contains("deadline"));assertEquals(1,c.uses());}
+    @Test void separatelyDeclaredPositiveBudgetAcceptsOnlyLaterTrueViewReceipt(){var c=inNativeRecordedViewRestore(5000);assertEquals(FishingOffenseController.Action.RESTORE_VIEW,c.tick(frame(3351,400,2,1,5,false,true,true,false),100));assertEquals(FishingOffenseController.Action.RELEASE,c.tick(frame(3550,400,2,1,5,false,true,true,true),100));assertEquals(FishingOffenseController.State.COMPLETE,c.state());assertEquals(1,c.uses());}
+    @Test void recordedNativeReturnMustBindAcquisitionAnchorRatherThanSetupCoordinate(){var position=new dev.veltraph.client.world.Vec3(.30000001192092896,70,.42733695721147663);var captured=new dev.veltraph.client.world.Vec3(.460799999833107,70,.5);var setup=new dev.veltraph.client.world.Vec3(.5,70,.5);assertTrue(position.distanceTo(captured)<.2);assertTrue(position.distanceTo(setup)>.2);}
+}

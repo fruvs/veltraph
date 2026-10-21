@@ -1,0 +1,12 @@
+package dev.veltraph.client.observation.nativeinput;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class NativePlayerBirthPipelineOrderTest {
+ @Test void actualUpstreamSourceAndExactHandlerContextPacketRequired(){var h=new Object();var c=new Object();var p=new Object();var o=new NativePlayerBirthPipelineOrder(h,c,p);assertTrue(o.nativeEnter(h,c,p,true,true,true,true));assertTrue(o.stamp(h,c,p));o.returned(true);assertTrue(o.complete());}
+ @Test void directSyntheticHandlerOrOffEventLoopCannotMintIngress(){var h=new Object();var c=new Object();var p=new Object();assertFalse(new NativePlayerBirthPipelineOrder(h,c,p).nativeEnter(h,c,p,true,false,true,true));assertFalse(new NativePlayerBirthPipelineOrder(h,c,p).nativeEnter(h,c,p,true,true,false,true));assertFalse(new NativePlayerBirthPipelineOrder(h,c,p).nativeEnter(h,c,p,true,true,true,false));assertFalse(new NativePlayerBirthPipelineOrder(h,c,p).stamp(h,c,p));}
+ @Test void SamePacketForeignContextAndRecursiveStampDenied(){var h=new Object();var c=new Object();var p=new Object();var o=new NativePlayerBirthPipelineOrder(h,c,p);o.nativeEnter(h,c,p,true,true,true,true);assertFalse(o.stamp(h,new Object(),p));var r=new NativePlayerBirthPipelineOrder(h,c,p);r.nativeEnter(h,c,p,true,true,true,true);r.stamp(h,c,p);assertFalse(r.stamp(h,c,p));}
+ @Test void callbackUnderRealReadCannotBorrowMissingExactWovenEntry(){var h=new Object();var c=new Object();var p=new Object();var o=new NativePlayerBirthPipelineOrder(h,c,p);assertFalse(o.nativeEnter(h,c,p,false,true,true,true));assertFalse(o.stamp(h,c,p));}
+ @Test void nestedAttemptRevokesOriginalBeforeStamp(){var h=new Object();var c=new Object();var p=new Object();var o=new NativePlayerBirthPipelineOrder(h,c,p);o.nativeEnter(h,c,p,true,true,true,true);o.refuse();assertFalse(o.stamp(h,c,p));assertFalse(o.complete());}
+ @Test void lateNestedAfterStampRevokesQueuedAndPositiveOrigin(){var h=new Object();var c=new Object();var p=new Object();var o=new NativePlayerBirthPipelineOrder(h,c,p);o.nativeEnter(h,c,p,true,true,true,true);o.stamp(h,c,p);assertTrue(o.usableQueued());o.refuse();o.returned(true);assertFalse(o.usableQueued());assertFalse(o.complete());}
+ @Test void queuedBeforePhaseFactsRequireWholeNormalOriginBeforePositive(){var h=new Object();var c=new Object();var p=new Object();var o=new NativePlayerBirthPipelineOrder(h,c,p);o.nativeEnter(h,c,p,true,true,true,true);o.stamp(h,c,p);assertTrue(o.usableQueued());assertFalse(o.complete());o.returned(false);assertFalse(o.complete());}
+}

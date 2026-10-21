@@ -1,0 +1,19 @@
+package dev.veltraph.client.combat.grind;
+
+import com.google.gson.*;
+import dev.veltraph.client.game.GameArea;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ZealotArenaProfileTest {
+    private static JsonObject contract(){
+        var p=new JsonObject();p.addProperty("mode","BOW");p.addProperty("dimension","minecraft:the_end");p.addProperty("gate","gate");p.add("spots",new Gson().toJsonTree(java.util.List.of("spot")));p.addProperty("retreat","retreat");p.add("preferredBows",new Gson().toJsonTree(java.util.List.of("Juju","Terminator")));p.addProperty("cooldownPrefix","Shot Cooldown:");p.add("startAreas",new Gson().toJsonTree(java.util.List.of("HUB","THE_END")));p.addProperty("warpCommand","warp end");p.addProperty("warpReceipt","Arrived End");p.addProperty("warpRefusal","Warp refused");var landing=new JsonObject();landing.addProperty("x",0);landing.addProperty("y",30);landing.addProperty("z",0);p.add("warpLanding",landing);p.addProperty("timeoutMs",20000);p.addProperty("dragonQuietMs",500);p.addProperty("dragonMarker","");p.addProperty("checkPlayers",true);p.addProperty("range",24);return p;
+    }
+    @Test void hubIngressDoesNotRequireDestinationDimensionBeforeOwnedWarp(){var p=ZealotArenaProfile.parse(contract().toString());assertTrue(p.permitsStart(GameArea.HUB,"minecraft:overworld"));assertTrue(p.permitsStart(GameArea.THE_END,"minecraft:the_end"));assertFalse(p.permitsStart(GameArea.THE_END,"minecraft:overworld"));assertFalse(p.permitsStart(GameArea.GARDEN,"minecraft:the_end"));}
+    @Test void endOnlyProfileCanOmitCommandButHubRequiresOne(){var j=contract();j.addProperty("warpCommand","");assertThrows(IllegalArgumentException.class,()->ZealotArenaProfile.parse(j.toString()));j.add("startAreas",new Gson().toJsonTree(java.util.List.of("THE_END")));assertEquals("",ZealotArenaProfile.parse(j.toString()).warpCommand());}
+    @Test void ambiguousReceiptCannotProveArrival(){var j=contract();j.addProperty("warpRefusal","Arrived End");assertThrows(IllegalArgumentException.class,()->ZealotArenaProfile.parse(j.toString()));}
+    @Test void malformedOrNonBooleanOwnershipGuardCannotDisableProtection(){var j=contract();j.addProperty("checkPlayers","false");assertThrows(IllegalArgumentException.class,()->ZealotArenaProfile.parse(j.toString()));j.remove("checkPlayers");assertThrows(IllegalArgumentException.class,()->ZealotArenaProfile.parse(j.toString()));}
+    @Test void whitespaceCannotMakeAnUnmatchableWarpContract(){var j=contract();j.addProperty("warpReceipt"," Arrived End ");assertThrows(IllegalArgumentException.class,()->ZealotArenaProfile.parse(j.toString()));}
+    @Test void nativeBeamAbilityAndStateCannotBeTheSameLore(){var j=contract();j.addProperty("mode","PRECURSOR");var b=new JsonObject();b.add("helmet",new JsonObject());b.addProperty("abilityLine","Eye Beam");b.addProperty("offLore","Eye Beam");b.addProperty("onLore","ON");b.addProperty("offReceipt","OFF receipt");b.addProperty("onReceipt","ON receipt");b.addProperty("manaLow",400);b.addProperty("manaHigh",600);b.addProperty("manaFreshMs",1000);b.addProperty("ackMs",2000);j.add("beam",b);assertThrows(IllegalArgumentException.class,()->ZealotArenaProfile.parse(j.toString()));b.addProperty("offLore","OFF");assertEquals(400,ZealotArenaProfile.parse(j.toString()).beam().manaLow());}
+    @Test void manaThresholdsAreStrictAbsoluteOrderedValues(){var j=contract();j.addProperty("mode","PRECURSOR");var b=new JsonObject();b.add("helmet",new JsonObject());b.addProperty("abilityLine","Eye Beam");b.addProperty("offLore","OFF");b.addProperty("onLore","ON");b.addProperty("offReceipt","OFF receipt");b.addProperty("onReceipt","ON receipt");b.addProperty("manaLow",400);b.addProperty("manaHigh",400);b.addProperty("manaFreshMs",1000);b.addProperty("ackMs",2000);j.add("beam",b);assertThrows(IllegalArgumentException.class,()->ZealotArenaProfile.parse(j.toString()));}
+}

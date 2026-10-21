@@ -1,0 +1,9 @@
+package dev.veltraph.client.rotation;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class NormalIdleAttemptOriginLifetimeTest {
+ @Test void actualWatchFieldIsWeakAndPrivate() throws Exception {var field=NormalIdleInputVersion.class.getDeclaredField("watchedOrigin");assertEquals(java.lang.ref.WeakReference.class,field.getType());assertTrue(java.lang.reflect.Modifier.isPrivate(field.getModifiers()));}
+ @Test void firstAttemptRemainsBoundedAndOldSnapshotRejected(){var v=new NormalIdleInputVersion();var actualScope=new Object();v.begin(actualScope,true);v.end(false);var old=v.snapshot();v.watchAttemptOrigin(old);v.begin(null,true);v.observeAttemptOrigin(false,false);v.end(false);assertFalse(v.current(old));String first=v.cachedCurrentDiagnostic();v.begin(null,true);v.observeAttemptOrigin(true,false);v.end(false);assertTrue(first.contains("unscoped=true"));assertTrue(first.contains("watchedRevision=1 actualRevision=2"));assertEquals(first,v.cachedCurrentDiagnostic());}
+ @Test void observingDoesNotAlterCurrentHistoryOrActualEnvelope(){var v=new NormalIdleInputVersion();var old=v.snapshot();v.watchAttemptOrigin(old);var issued=new Object();v.begin(issued,true);v.observeAttemptOrigin(false,false);v.end(false);var after=v.snapshot();assertTrue(v.current(after));assertTrue(v.advancedOnly(old,after,java.util.List.of(issued)));assertFalse(v.current(old));}
+ @Test void independentNewAcceptedSnapshotCanWatchWithoutReusingOldOrigin(){var v=new NormalIdleInputVersion();var first=v.snapshot();v.watchAttemptOrigin(first);v.begin(null,true);v.observeAttemptOrigin(false,false);v.end(false);var second=v.snapshot();v.watchAttemptOrigin(second);v.begin(null,true);v.observeAttemptOrigin(false,false);v.end(false);assertTrue(v.cachedCurrentDiagnostic().contains("watchedRevision=1 actualRevision=2"));assertFalse(v.current(second));}
+}

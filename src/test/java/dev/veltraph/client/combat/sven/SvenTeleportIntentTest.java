@@ -1,0 +1,8 @@
+package dev.veltraph.client.combat.sven;
+import org.junit.jupiter.api.Test;import static org.junit.jupiter.api.Assertions.*;import dev.veltraph.client.observation.unexpected.UnexpectedBehaviorMonitor.*;import dev.veltraph.client.observation.unexpected.UnexpectedBehaviorMonitor;
+final class SvenTeleportIntentTest {
+ final Context context=new Context(new Activation("sven",1,true),1,2,3);
+ @Test void actualMonitorAcceptsOnePreDispatchIntentEvenWithLongOperation(){var spec=SvenTeleportIntent.forOperation(50000);var monitor=new UnexpectedBehaviorMonitor(f->{});assertDoesNotThrow(()->monitor.intent(context,Kind.POSITION,Value.position(spec.target().x(),spec.target().y(),spec.target().z()),spec.radius(),100,spec.ttlMillis()));assertEquals(5000,spec.ttlMillis());assertEquals(3,spec.radius());assertEquals(SvenCaveProfile.PARK_SPAWN,spec.target());}
+ @Test void shortOperationKeepsItsEarlierObservationEndAndInvalidInputsReject(){assertEquals(250,SvenTeleportIntent.forOperation(250).ttlMillis());assertEquals(1,SvenTeleportIntent.forOperation(1).ttlMillis());assertThrows(IllegalArgumentException.class,()->SvenTeleportIntent.forOperation(0));assertThrows(IllegalArgumentException.class,()->SvenTeleportIntent.forOperation(-1));}
+ @Test void sharedMonitorStillRejectsOversizedWindowsAndBroadPositionEvidence(){var monitor=new UnexpectedBehaviorMonitor(f->{});var v=Value.position(-266,79,-18);assertThrows(IllegalArgumentException.class,()->monitor.intent(context,Kind.POSITION,v,15,100,5000));assertThrows(IllegalArgumentException.class,()->monitor.intent(context,Kind.POSITION,v,3,100,50000));}
+}

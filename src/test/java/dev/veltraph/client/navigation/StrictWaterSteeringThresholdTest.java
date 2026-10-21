@@ -1,0 +1,18 @@
+package dev.veltraph.client.navigation;
+
+import dev.veltraph.client.world.Vec3;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+final class StrictWaterSteeringThresholdTest {
+    private final Vec3 goal=new Vec3(.5,70,.5);
+    private final WaterTravelController.Geometry clear=new WaterTravelController.Geometry(){public boolean connection(Vec3 a,Vec3 b){return true;}public boolean ground(Vec3 p){return true;}public boolean water(Vec3 p){return true;}};
+    private WaterTravelController.Input input(Vec3 p,Vec3 v,float yaw,long now){return new WaterTravelController.Input(p,v,yaw,true,true,false,300,300,20,true,false,true,now);}
+    private WaterTravelController controller(double radius){var c=new WaterTravelController();c.start(List.of(goal),20,0,radius);return c;}
+    private boolean movement(WaterTravelController.Output out){return out.forward()||out.back()||out.left()||out.right();}
+    @Test void supportedSettledExteriorHasMovementAcrossRadiusYawAndDiagonalMatrix(){for(double radius:new double[]{.05,.18,.3})for(int direction=0;direction<360;direction+=45)for(int yaw=0;yaw<360;yaw+=30){double a=Math.toRadians(direction);var p=new Vec3(goal.x()-Math.cos(a)*radius*1.05,70,goal.z()-Math.sin(a)*radius*1.05);var out=controller(radius).tick(input(p,new Vec3(0,-.005,0),yaw,50),clear,6000,1);assertEquals(WaterTravelController.State.TRAVELLING,out.state());assertTrue(movement(out),"No supported settled exterior deadzone: radius="+radius+", direction="+direction+", yaw="+yaw);}}
+    @Test void measuredDiagonalAndBackwardFacingPreserveVectorPolarity(){var p=new Vec3(.3000000119,70,.4232819955);var out=controller(.18).tick(input(p,new Vec3(0,-.005,0),-22.52124f,50),clear,6000,1);assertTrue(out.forward());assertTrue(out.left());assertFalse(out.back());assertFalse(out.right());var back=controller(.18).tick(input(new Vec3(.3,70,.5),new Vec3(0,-.005,0),90,50),clear,6000,1);assertTrue(back.back());assertFalse(back.forward());var lateral=controller(.18).tick(input(new Vec3(.31,70,.45),new Vec3(0,-.005,0),0,50),clear,6000,1);assertTrue(lateral.left());assertFalse(lateral.right());assertFalse(lateral.forward(),"Small unrelated axis must not receive a synthesized key");}
+    @Test void overshootInsideGoalReleasesKeysUntilOrdinaryMomentumSettles(){var c=controller(.18);var p=new Vec3(.55,70,.5);var moving=c.tick(input(p,new Vec3(.04,-.005,0),0,50),clear,6000,1);assertEquals(WaterTravelController.State.TRAVELLING,moving.state());assertFalse(movement(moving));var settled=c.tick(input(p,new Vec3(.01,-.005,0),0,100),clear,6000,1);assertEquals(WaterTravelController.State.ARRIVED,settled.state());assertFalse(movement(settled));}
+    @Test void obstructionLegacyAndSurfaceRefillRemainUntouched(){var blocked=new WaterTravelController.Geometry(){public boolean connection(Vec3 a,Vec3 b){return false;}public boolean ground(Vec3 p){return true;}public boolean water(Vec3 p){return true;}};var p=new Vec3(.3,70,.4233);var out=controller(.18).tick(input(p,new Vec3(0,-.005,0),-22.5f,50),blocked,6000,1);assertEquals(WaterTravelController.State.BLOCKED,out.state());assertFalse(movement(out));var legacy=new WaterTravelController();legacy.start(List.of(goal),20,0);assertEquals(WaterTravelController.State.ARRIVED,legacy.tick(input(p,new Vec3(0,-.005,0),0,50),clear,6000,1).state());var strictSurface=controller(.18);strictSurface.surface(List.of(goal),0);var legacySurface=new WaterTravelController();legacySurface.start(List.of(goal),20,0);legacySurface.surface(List.of(goal),0);assertEquals(legacySurface.tick(input(p,new Vec3(0,-.005,0),0,50),clear,6000,1),strictSurface.tick(input(p,new Vec3(0,-.005,0),0,50),clear,6000,1));}
+}

@@ -1,0 +1,11 @@
+package dev.veltraph.client.navigation;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class GroundApproachCommitmentTest {
+    private static final List<GroundJumpApproach.Key> PLAN=List.of(GroundJumpApproach.Key.NEUTRAL,GroundJumpApproach.Key.BACK_LEFT,GroundJumpApproach.Key.RIGHT);
+    @Test void exactActiveOfferedResultCommitsOnceAndAdvancesFiniteSequence(){var kernel=new GroundApproachCommitment();var episode=new Object();var offer=new Object();kernel.begin(episode);kernel.offer(episode,offer,PLAN);assertTrue(kernel.commit(episode,offer));assertEquals(PLAN.subList(1,3),kernel.remaining(episode));assertFalse(kernel.commit(episode,offer));var next=new Object();kernel.offer(episode,next,kernel.remaining(episode));assertTrue(kernel.commit(episode,next));assertEquals(List.of(GroundJumpApproach.Key.RIGHT),kernel.remaining(episode));}
+    @Test void resetAndNewEpisodeVetoLatePreviouslyOfferedResult(){var kernel=new GroundApproachCommitment();var old=new Object();var result=new Object();kernel.begin(old);kernel.offer(old,result,PLAN);kernel.reset();assertFalse(kernel.commit(old,result));assertTrue(kernel.remaining(old).isEmpty());var fresh=new Object();kernel.begin(fresh);assertFalse(kernel.commit(old,result));assertFalse(kernel.commit(fresh,result));assertTrue(kernel.remaining(fresh).isEmpty());}
+    @Test void foreignEqualButDistinctResultAndReplacedOfferCannotCommit(){var kernel=new GroundApproachCommitment();var episode=new Object();kernel.begin(episode);String first=new String("same"),foreign=new String("same");kernel.offer(episode,first,PLAN);assertFalse(kernel.commit(episode,foreign));var replacement=new Object();kernel.offer(episode,replacement,PLAN);assertFalse(kernel.commit(episode,first));assertTrue(kernel.commit(episode,replacement));}
+    @Test void refusalAndInvalidOfferCannotRepopulateState(){var kernel=new GroundApproachCommitment();var episode=new Object();var offer=new Object();kernel.begin(episode);kernel.offer(episode,offer,PLAN);kernel.refuse(episode);assertFalse(kernel.commit(episode,offer));assertTrue(kernel.remaining(episode).isEmpty());kernel.offer(episode,offer,List.of());assertFalse(kernel.commit(episode,offer));}
+}

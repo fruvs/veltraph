@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.veltraph.client.greenhouse.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "GreenhouseDiagnosticPacketMixin",
+    "GreenhouseDiagnosticReceiveMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

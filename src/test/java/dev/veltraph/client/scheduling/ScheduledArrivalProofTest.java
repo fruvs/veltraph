@@ -1,0 +1,35 @@
+package dev.veltraph.client.scheduling;
+
+import dev.veltraph.client.world.Vec3;
+import java.util.UUID;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ScheduledArrivalProofTest {
+    static final class Arrival {
+        final Object owner=new Object(),ticket=new Object();
+        final UUID id=UUID.fromString("eb8a9767-df73-4a48-b3bc-a18319c8327b");
+        final ScheduledArrivalProof.NativeContext departure=context(new Object(),new Object(),new Object(),id,"overworld","garden");
+        final ScheduledArrivalProof.NativeContext joined=context(new Object(),new Object(),new Object(),id,"overworld","garden");
+        ScheduledArrivalProof.NativeContext current=joined;
+        ScheduledArrivalProof.Metadata metadata=new ScheduledArrivalProof.Metadata("profile A","settings A","schedule A");
+        ScheduledArrivalProof.Pose pose=new ScheduledArrivalProof.Pose(new Vec3(10,64,20),179,15,"standing",3);
+        final ScheduledArrivalProof.Saved saved=new ScheduledArrivalProof.Saved(owner,ticket,metadata,departure,pose);
+        boolean authorized=true,enabled=true,target=true,healthy=true,menu=true,gear=true,loaded=true,still=true,ready=true,settled=true,exclusive=true;
+        ScheduledArrivalProof.Observation observation(){return new ScheduledArrivalProof.Observation(metadata,current,pose,authorized,enabled,target,healthy,menu,gear,loaded,still,ready,settled,exclusive);}
+        boolean proof(){return proof(owner,ticket);}
+        boolean proof(Object requestedOwner,Object requestedTicket){return ScheduledArrivalProof.permits(saved,joined,observation(),requestedOwner,requestedTicket);}
+    }
+    static ScheduledArrivalProof.NativeContext context(Object player,Object world,Object connection,UUID id,String dimension,Object area){return new ScheduledArrivalProof.NativeContext(player,world,connection,id,dimension,area);}
+    @Test void exactProofCanBeReadRepeatedlyWithoutChangingCapture(){var a=new Arrival();var before=a.observation();for(int i=0;i<10;i++)assertTrue(a.proof());assertEquals(before,a.observation());}
+    @Test void rejectsForeignOwnerAndTokenEvenWhenTheirValuesAreEqual(){var a=new Arrival();assertFalse(a.proof(new Object(),a.ticket));assertFalse(a.proof(a.owner,new Object()));assertFalse(a.proof(null,a.ticket));assertFalse(a.proof(a.owner,null));}
+    @Test void profileSettingsAndScheduleChangesEachRevokeAuthority(){for(int i=0;i<3;i++){var a=new Arrival();a.metadata=new ScheduledArrivalProof.Metadata(i==0?"profile B":"profile A",i==1?"settings B":"settings A",i==2?"schedule B":"schedule A");assertFalse(a.proof());}}
+    @Test void replacementOfAnyJoinedNativeObjectRevokesAuthority(){for(int i=0;i<3;i++){var a=new Arrival();a.current=context(i==0?new Object():a.joined.player(),i==1?new Object():a.joined.world(),i==2?new Object():a.joined.connection(),a.id,"overworld","garden");assertFalse(a.proof());}}
+    @Test void originalNativeObjectsCannotClaimFreshArrival(){for(int i=0;i<3;i++){var a=new Arrival();var old=context(i==0?a.departure.player():a.joined.player(),i==1?a.departure.world():a.joined.world(),i==2?a.departure.connection():a.joined.connection(),a.id,"overworld","garden");assertFalse(ScheduledArrivalProof.permits(a.saved,old,new ScheduledArrivalProof.Observation(a.metadata,old,a.pose,true,true,true,true,true,true,true,true,true,true,true),a.owner,a.ticket));}}
+    @Test void wrongUuidDimensionAndAreaRevokeAuthority(){for(int i=0;i<3;i++){var a=new Arrival();a.current=context(a.joined.player(),a.joined.world(),a.joined.connection(),i==0?UUID.randomUUID():a.id,i==1?"nether":"overworld",i==2?"park":"garden");assertFalse(a.proof());}}
+    @Test void displacedViewPostureAndSelectedSlotRevokeAuthority(){for(int i=0;i<5;i++){var a=new Arrival();a.pose=new ScheduledArrivalProof.Pose(i==0?new Vec3(10.36,64,20):a.pose.position(),i==1?180.5f:179,i==2?16.5f:15,i==3?"crouching":"standing",i==4?4:3);assertFalse(a.proof());}}
+    @Test void yawWrapIsAllowedButNonfinitePositionAndViewAreNot(){var a=new Arrival();a.pose=new ScheduledArrivalProof.Pose(a.pose.position(),-181,15,"standing",3);assertTrue(a.proof());for(int i=0;i<3;i++){a=new Arrival();a.pose=new ScheduledArrivalProof.Pose(i==0?new Vec3(Double.NaN,64,20):a.pose.position(),i==1?Float.NaN:179,i==2?Float.POSITIVE_INFINITY:15,"standing",3);assertFalse(a.proof());}}
+    @Test void everyNativeAndLeaseSafetyFactIsRequired(){for(int i=0;i<12;i++){var a=new Arrival();switch(i){case 0->a.authorized=false;case 1->a.enabled=false;case 2->a.target=false;case 3->a.healthy=false;case 4->a.menu=false;case 5->a.gear=false;case 6->a.loaded=false;case 7->a.still=false;case 8->a.ready=false;case 9->a.settled=false;case 10->a.exclusive=false;case 11->a.current=null;}assertFalse(a.proof(),"fact "+i);}}
+    @Test void exactFamilyProofSurvivesConsumedPauseTokenUntilSynchronousCommitThenExpires(){var a=new Arrival();var runtime=SourceRestRuntimeTest.pending();var paused=new boolean[]{true};var committing=new boolean[]{true};var captured=new boolean[]{true};var resumes=new int[1];java.util.function.BooleanSupplier authority=()->{a.authorized=captured[0]&&runtime.withinDeadline(60_004)&&runtime.state()==SourceRestRuntime.State.VERIFYING_ARRIVAL&&(paused[0]||committing[0]&&runtime.restartPending());return a.proof();};var handoff=new ScheduledResumeHandoff();assertTrue(handoff.complete(()->{assertTrue(authority.getAsBoolean());resumes[0]++;paused[0]=false;assertTrue(authority.getAsBoolean());assertEquals(SourceRestRuntime.Action.NONE,runtime.tick(SourceRestRuntimeTest.facts(false,true,true,60_004)));return authority.getAsBoolean();},()->assertTrue(authority.getAsBoolean()),()->{},()->{captured[0]=false;runtime.cancel("failed");}));assertTrue(runtime.commitRestart(SourceRestRuntimeTest.facts(false,true,authority.getAsBoolean(),60_004)));captured[0]=committing[0]=false;assertFalse(authority.getAsBoolean());assertEquals(1,resumes[0]);}
+    @Test void callbackChangingCaptureFactsStopsWithoutMovementReplayOrComplete(){for(int mode=0;mode<5;mode++){var a=new Arrival();var runtime=SourceRestRuntimeTest.pending();int change=mode;var calls=new int[2];var handoff=new ScheduledResumeHandoff();assertFalse(handoff.complete(()->{calls[0]++;switch(change){case 0->a.metadata=new ScheduledArrivalProof.Metadata("different","settings A","schedule A");case 1->a.current=context(a.joined.player(),new Object(),a.joined.connection(),a.id,"overworld","garden");case 2->a.pose=new ScheduledArrivalProof.Pose(new Vec3(12,64,20),179,15,"standing",3);case 3->{runtime.cancel("manual cancel callback");a.authorized=false;}case 4->throw new IllegalStateException("family resume failed");}return a.proof();},()->calls[1]++,()->{},()->{runtime.cancel("failed resume");a.authorized=false;}));assertArrayEquals(new int[]{1,0},calls);assertFalse(a.proof());assertEquals(SourceRestRuntime.State.CANCELLED,runtime.state());assertFalse(runtime.commitRestart(SourceRestRuntimeTest.facts(false,true,true,60_004)));assertEquals(SourceRestRuntime.Action.NONE,runtime.tick(SourceRestRuntimeTest.facts(false,true,true,60_005)));}}
+}

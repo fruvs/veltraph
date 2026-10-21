@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.veltraph.client.garden.visitor.history.mc.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "VisitorHistorySendMixin",
+    "VisitorHistoryReceiveMixin",
+    "OwnedGuiInputSourceMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

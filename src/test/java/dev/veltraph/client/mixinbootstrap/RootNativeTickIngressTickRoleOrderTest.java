@@ -1,0 +1,31 @@
+package dev.veltraph.client.mixinbootstrap;
+import org.junit.jupiter.api.Test;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.tree.*;
+import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
+class RootNativeTickIngressTickRoleOrderTest {
+    private static final String MC="net/minecraft/client/Minecraft",CAMERA="dev.veltraph.client.mixin.OwnedRotationTickMixin",GAME="dev.veltraph.client.mixin.RootNativeGameplayTickMixin",SDL="dev.veltraph.client.mixin.RootNativeSdlClientMixin",RENDER="dev.veltraph.client.mixin.RootNativeCameraIngressMixin";
+    private static MethodNode method(String name,String desc){return new MethodNode(Opcodes.ACC_PUBLIC,name,desc,null,null);}
+    private static void call(MethodNode source,int opcode,String owner,String name,String desc){source.instructions.add(new MethodInsnNode(opcode,owner,name,desc,false));}
+    private static ClassNode original(){var t=new ClassNode();t.name=MC;var run=method("run","()V");call(run,Opcodes.INVOKEVIRTUAL,MC,"runTick","(Z)V");call(run,Opcodes.INVOKESTATIC,"com/mojang/blaze3d/systems/RenderSystem","pollEvents","(Lcom/mojang/blaze3d/platform/SDLEventHandler;)V");var runTick=method("runTick","(Z)V");call(runTick,Opcodes.INVOKEVIRTUAL,MC,"tick","()V");call(runTick,Opcodes.INVOKEVIRTUAL,MC,"renderFrame","(Z)V");call(runTick,Opcodes.INVOKEVIRTUAL,"net/minecraft/client/MouseHandler","handleAccumulatedMovement","()V");var tick=method("tick","()V");tick.instructions.add(new InsnNode(Opcodes.RETURN));var render=method("renderFrame","(Z)V");call(render,Opcodes.INVOKEVIRTUAL,"net/minecraft/client/renderer/GameRenderer","update","(Lnet/minecraft/client/DeltaTracker;)V");t.methods.addAll(List.of(run,runTick,tick,render));return t;}
+    private static MethodNode method(ClassNode t,String name){return t.methods.stream().filter(m->m.name.equals(name)).findFirst().orElseThrow();}
+    private static Object field(RootNativeTickIngressPlugin p,String name){try{var f=RootNativeTickIngressPlugin.class.getDeclaredField(name);f.setAccessible(true);return f.get(p);}catch(ReflectiveOperationException e){throw new AssertionError(e);}}
+    private static void apply(RootNativeTickIngressPlugin p,ClassNode t,String role){p.preApply(MC,t,role,null);}
+    private static void permutations(List<String> remaining,List<String> prefix,List<List<String>> output){if(remaining.isEmpty()){output.add(List.copyOf(prefix));return;}for(int i=0;i<remaining.size();i++){var next=new ArrayList<>(remaining);String role=next.remove(i);prefix.add(role);permutations(next,prefix,output);prefix.removeLast();}}
+    @Test void all24ActualRoleOrdersRetainSameBodiesAndOnlyActualRoleMintsItsOwnField(){
+        var orders=new ArrayList<List<String>>();permutations(List.of(CAMERA,GAME,SDL,RENDER),new ArrayList<>(),orders);assertEquals(24,orders.size());
+        for(var order:orders){var t=original();var p=new RootNativeTickIngressPlugin();var tick=method(t,"tick").instructions;var runTick=method(t,"runTick").instructions;var seen=new HashSet<String>();
+            for(var role:order){apply(p,t,role);seen.add(role);if(seen.contains(CAMERA))assertSame(tick,field(p,"originalCameraTick"),order.toString());else assertNull(field(p,"originalCameraTick"),order.toString());if(seen.contains(GAME))assertSame(tick,field(p,"originalTick"),order.toString());else assertNull(field(p,"originalTick"),order.toString());if(seen.contains(GAME)||seen.contains(SDL)||seen.contains(RENDER))assertSame(runTick,field(p,"originalRunTick"),order.toString());}
+            assertSame(field(p,"originalTick"),field(p,"originalCameraTick"));
+        }
+    }
+    @Test void missingCameraRoleIsNotFabricatedByGameplayAndCannotSatisfyFinalPair(){var t=original();var p=new RootNativeTickIngressPlugin();apply(p,t,GAME);apply(p,t,SDL);apply(p,t,RENDER);assertSame(method(t,"tick").instructions,field(p,"originalTick"));assertNull(field(p,"originalCameraTick"));assertNotSame(field(p,"originalTick"),field(p,"originalCameraTick"));}
+    @Test void missingGameplayRoleIsNotFabricatedByCameraAndCannotSatisfyFinalSource(){var t=original();var p=new RootNativeTickIngressPlugin();apply(p,t,CAMERA);apply(p,t,SDL);apply(p,t,RENDER);assertSame(method(t,"tick").instructions,field(p,"originalCameraTick"));assertNull(field(p,"originalTick"));assertNotSame(field(p,"originalTick"),field(p,"originalCameraTick"));}
+    @Test void gameplayFirstRejectsStructurallyEqualReplacementTickAtLaterCameraRole(){var t=original();var p=new RootNativeTickIngressPlugin();apply(p,t,GAME);var retained=field(p,"originalTick");var different=new InsnList();different.add(new InsnNode(Opcodes.RETURN));method(t,"tick").instructions=different;assertThrows(IllegalStateException.class,()->apply(p,t,CAMERA));assertSame(retained,field(p,"originalTick"));assertNull(field(p,"originalCameraTick"));}
+    @Test void cameraFirstRejectsStructurallyEqualReplacementAtLaterGameplayRole(){var t=original();var p=new RootNativeTickIngressPlugin();apply(p,t,CAMERA);var retained=field(p,"originalCameraTick");var different=new InsnList();different.add(new InsnNode(Opcodes.RETURN));method(t,"tick").instructions=different;assertThrows(IllegalStateException.class,()->apply(p,t,GAME));assertSame(retained,field(p,"originalCameraTick"));assertNull(field(p,"originalTick"));}
+    @Test void duplicateCameraRoleStillRefusesSameActualBody(){var t=original();var p=new RootNativeTickIngressPlugin();apply(p,t,CAMERA);assertThrows(IllegalStateException.class,()->apply(p,t,CAMERA));}
+    @Test void duplicateGameplayRoleStillRefusesSameActualBody(){var t=original();var p=new RootNativeTickIngressPlugin();apply(p,t,GAME);assertThrows(IllegalStateException.class,()->apply(p,t,GAME));}
+    @Test void missingUniqueTickDoesNotMintEitherRole(){for(var role:List.of(CAMERA,GAME)){var t=original();t.methods.remove(method(t,"tick"));var p=new RootNativeTickIngressPlugin();assertThrows(IllegalStateException.class,()->apply(p,t,role));assertNull(field(p,"originalTick"));assertNull(field(p,"originalCameraTick"));}}
+    @Test void duplicateUniqueTickDoesNotMintEitherRole(){for(var role:List.of(CAMERA,GAME)){var t=original();t.methods.add(method("tick","()V"));var p=new RootNativeTickIngressPlugin();assertThrows(IllegalStateException.class,()->apply(p,t,role));assertNull(field(p,"originalTick"));assertNull(field(p,"originalCameraTick"));}}
+}

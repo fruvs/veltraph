@@ -1,0 +1,15 @@
+.gradle/
+build/
+run/
+remappedSrc/
+.fabric/
+.idea/
+.vscode/
+*.iml
+.DS_Store
+*.log
+.env
+.env.*
+config/
+
+logs/

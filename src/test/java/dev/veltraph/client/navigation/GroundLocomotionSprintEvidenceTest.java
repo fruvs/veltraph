@@ -1,0 +1,11 @@
+package dev.veltraph.client.navigation;
+import dev.veltraph.client.world.Vec3;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class GroundLocomotionSprintEvidenceTest {
+    private static GroundLocomotionEvidence.Snapshot snapshot(int signature,double distance){var e=new GroundLocomotionEvidence();for(int i=0;i<5;i++)e.observe(GroundLocomotionEvidence.Stage.values()[i],(signature&(1<<i))!=0);e.lead(new Vec3(0,70,distance),distance,0);return e.snapshot("done",GroundLocomotionPolicy.Phase.READY,null,null,null);}
+    @Test void sprintReadOperandsAreCachedAndReturnedUnchanged(){var e=new GroundLocomotionEvidence();var v=new Vec3(0,-.0784,.117);assertSame(v,e.sprintVelocity(v));assertEquals(.1,e.sprintSpeed(.1));assertEquals(7.5,e.heading(7.5));e.lead(new Vec3(0,70,4),4,0);var s=e.snapshot("done",GroundLocomotionPolicy.Phase.READY,null,null,null);assertEquals(v,s.sprintVelocity());assertEquals(.1,s.sprintSpeed());assertEquals(4,s.distance());assertEquals(7.5,s.heading());}
+    @Test void boundedRecorderCannotTurnPartialHeadroomSuccessIntoAProvedSprint(){var e=new GroundLocomotionEvidence();e.observe(GroundLocomotionEvidence.Stage.SPRINT_HEADROOM,true);e.observe(GroundLocomotionEvidence.Stage.SPRINT_FROM_SUPPORT,false);var trace=new GroundLocomotionEvidence.Trace();trace.record(e.snapshot("done",GroundLocomotionPolicy.Phase.READY,null,null,null),false,true,false);assertTrue(trace.describe().contains("provedSprintSamples=0"));assertTrue(trace.describe().contains("policySprint=0"));assertTrue(trace.describe().contains("frameAvailability=1"));}
+    @Test void recordingIsBoundedAndKeepsActualTotalsAndMaxLead(){var trace=new GroundLocomotionEvidence.Trace();for(int i=0;i<64;i++)trace.record(snapshot(i,i),i==50,true,i==50);assertEquals(16,trace.stored());assertEquals(64,trace.frames());assertTrue(trace.describe().contains("policySprint=1"));assertTrue(trace.describe().contains("leadDistance=63.0"));}
+    @Test void resetClearsPreviousJourneyWithoutAnyEffectOrLiveRead(){var trace=new GroundLocomotionEvidence.Trace();trace.record(snapshot(3,4),true,true,true);trace.reset();assertEquals(0,trace.frames());assertEquals(0,trace.stored());assertTrue(trace.describe().contains("first={none}"));assertTrue(trace.describe().contains("policySprint=0"));}
+}

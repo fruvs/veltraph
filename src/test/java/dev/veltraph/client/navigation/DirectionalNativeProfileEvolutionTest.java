@@ -1,0 +1,33 @@
+package dev.veltraph.client.navigation;
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+final class DirectionalNativeProfileEvolutionTest {
+    private static List<GroundCapturedEffects.Effect> captured(){return List.of(
+        new GroundCapturedEffects.Effect("minecraft:haste",0,true,true,false),
+        new GroundCapturedEffects.Effect("minecraft:mining_fatigue",255,true,true,false),
+        new GroundCapturedEffects.Effect("minecraft:strength",7,true,true,false),
+        new GroundCapturedEffects.Effect("minecraft:night_vision",0,true,true,false),
+        new GroundCapturedEffects.Effect("minecraft:regeneration",8,true,true,false),
+        new GroundCapturedEffects.Effect("minecraft:absorption",0,true,true,false),
+        new GroundCapturedEffects.Effect("minecraft:jump_boost",5,true,true,false));}
+    private static GroundNativePhysicsProfile.State state(double base,boolean sprint,boolean boost){
+        var mods=sprint?List.of(new GroundNativePhysicsProfile.Modifier("minecraft:sprinting",GroundNativePhysicsProfile.CAPTURED_SPRINT_AMOUNT,2)):List.<GroundNativePhysicsProfile.Modifier>of();
+        double effective=base*(sprint?1D+GroundNativePhysicsProfile.CAPTURED_SPRINT_AMOUNT:1D);
+        return new GroundNativePhysicsProfile.State(base,effective,(float)effective,mods,.42D,.08D,1D,1D,boost?5:-1,boost?captured():List.of(),0D,1F);}
+    private static GroundNativePhysicsProfile.State physics(GroundNativePhysicsProfile.State s,double jump,double gravity,double friction,double drag,double efficiency,float factor){
+        return new GroundNativePhysicsProfile.State(s.baseSpeed(),s.effectiveSpeed(),s.travelSpeed(),s.movementModifiers(),jump,gravity,friction,drag,s.jumpAmplifier(),s.effects(),efficiency,factor);}
+    private static boolean evolves(GroundNativePhysicsProfile.State before,GroundNativePhysicsProfile.State after,int calls,boolean argument){
+        return GroundOwnedSprintTransition.profileEvolutionDirectionalQualified(before,after,before.travelSpeed(),calls,argument);}
+    @Test void ordinaryFactoryPredicateStillRejectsVanillaRefresh(){var s=state(.1D,false,false);assertFalse(GroundOwnedSprintTransition.profileEvolution(s,s,s.travelSpeed(),0,false));assertTrue(evolves(s,s,0,false));}
+    @Test void exactVanillaDoubleAndFloatFamiliesHaveStableOwnedRefresh(){for(double base:List.of(.1D,(double).1F)){for(boolean sprint:List.of(false,true)){var s=state(base,sprint,false);assertTrue(GroundOwnedSprintTransition.directionalProfileSupported(s));assertTrue(evolves(s,s,0,false));}}}
+    @Test void genuineStartAndStopSprintEvolutionAreConsistent(){for(double base:List.of(.1D,(double).1F)){var walk=state(base,false,false);var run=state(base,true,false);assertTrue(evolves(walk,run,1,true));assertTrue(evolves(run,walk,1,false));assertFalse(evolves(walk,run,0,true));assertFalse(evolves(run,walk,0,false));assertFalse(evolves(walk,run,1,false));}}
+    @Test void redundantNativeStopAndStartRemainReceiptConsistent(){var walk=state(.1D,false,false);var run=state(.1D,true,false);assertTrue(evolves(walk,walk,1,false));assertTrue(evolves(run,run,1,true));assertFalse(evolves(walk,walk,1,true));assertFalse(evolves(run,run,1,false));}
+    @Test void capturedFamilyDelegatesOriginalPredicateAcrossAllCallShapes(){for(double base:List.of(GroundNativePhysicsProfile.CAPTURED_360,GroundNativePhysicsProfile.CAPTURED_400))for(boolean a:List.of(false,true))for(boolean b:List.of(false,true))for(int calls:List.of(-1,0,1,2))for(boolean arg:List.of(false,true)){var before=state(base,a,true);var after=state(base,b,true);assertEquals(GroundOwnedSprintTransition.profileEvolution(before,after,before.travelSpeed(),calls,arg),evolves(before,after,calls,arg));}}
+    @Test void baseAndFamilyChangesNeverBecomeAnOwnedRefresh(){var a=state(.1D,false,false);assertFalse(evolves(a,state((double).1F,false,false),0,false));assertFalse(evolves(a,state(GroundNativePhysicsProfile.CAPTURED_360,false,true),0,false));assertFalse(evolves(state(GroundNativePhysicsProfile.CAPTURED_360,false,true),a,0,false));assertFalse(GroundOwnedSprintTransition.directionalProfileSupported(state(.3D,false,false)));}
+    @Test void nativeSprintIdentityMetadataMustBeExactFloatAmountIdAndOperation(){var s=state(.1D,false,false);for(var m:List.of(new GroundNativePhysicsProfile.Modifier("minecraft:sprinting",.3D,2),new GroundNativePhysicsProfile.Modifier("other:sprinting",GroundNativePhysicsProfile.CAPTURED_SPRINT_AMOUNT,2),new GroundNativePhysicsProfile.Modifier("minecraft:sprinting",GroundNativePhysicsProfile.CAPTURED_SPRINT_AMOUNT,1))){double value=.1D*(1D+m.amount());var bad=new GroundNativePhysicsProfile.State(.1D,value,(float)value,List.of(m),.42D,.08D,1D,1D,-1,List.of(),0D,1F);assertFalse(GroundOwnedSprintTransition.directionalProfileSupported(bad));assertFalse(evolves(s,bad,1,true));}}
+    @Test void neutralOrMovementEffectsDoNotExpandVanillaDomain(){var s=state(.1D,false,false);for(var effect:List.of(new GroundCapturedEffects.Effect("minecraft:haste",0,true,true,false),new GroundCapturedEffects.Effect("minecraft:speed",0,true,true,false),new GroundCapturedEffects.Effect("minecraft:jump_boost",5,true,true,false))){int amp=effect.id().equals("minecraft:jump_boost")?5:-1;var bad=new GroundNativePhysicsProfile.State(.1D,.1D,.1F,List.of(),.42D,.08D,1D,1D,amp,List.of(effect),0D,1F);assertFalse(GroundOwnedSprintTransition.directionalProfileSupported(bad));assertFalse(evolves(s,bad,0,false));}}
+    @Test void malformedFieldSpeedAndCallbackCountsRefuse(){var s=state(.1D,false,false);assertFalse(GroundOwnedSprintTransition.profileEvolutionDirectionalQualified(s,s,Math.nextUp(s.travelSpeed()),0,false));assertFalse(evolves(s,s,-1,false));assertFalse(evolves(s,s,2,false));var wrong=new GroundNativePhysicsProfile.State(.1D,.1D,.11F,List.of(),.42D,.08D,1D,1D,-1,List.of(),0D,1F);assertFalse(evolves(s,wrong,0,false));}
+    @Test void otherwiseValidPhysicsChangesStillRefuseEvolution(){var s=state(.1D,false,false);assertFalse(evolves(s,physics(s,(double).42F,.08D,1D,1D,0D,1F),0,false));assertFalse(evolves(s,physics(s,.42D,.08D,1D,1D,.5D,1F),0,false));assertFalse(evolves(s,physics(s,.42D,.04D,1D,1D,0D,1F),0,false));assertFalse(evolves(s,physics(s,.42D,.08D,1D,1D,0D,.4F),0,false));}
+    @Test void nullAndPartialCapturedFamiliesStayUnsupported(){assertFalse(GroundOwnedSprintTransition.directionalProfileSupported(null));assertFalse(GroundOwnedSprintTransition.profileEvolutionDirectionalQualified(null,null,.1F,0,false));assertFalse(GroundOwnedSprintTransition.directionalProfileSupported(state(GroundNativePhysicsProfile.CAPTURED_400,false,false)));assertFalse(GroundOwnedSprintTransition.directionalProfileSupported(state(.1D,false,true)));}
+}

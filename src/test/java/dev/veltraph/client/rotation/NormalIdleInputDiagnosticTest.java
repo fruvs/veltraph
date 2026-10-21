@@ -1,0 +1,10 @@
+package dev.veltraph.client.rotation;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class NormalIdleInputDiagnosticTest {
+ @Test void ownThenForeignNoEffectAttemptRecordsFirstActualMismatchWithoutAcceptingIt(){var v=new NormalIdleInputVersion();Object own=new Object();v.begin(own,true);v.end(false);var captured=v.snapshot();assertTrue(v.current(captured));v.begin(null,true);v.end(false);assertFalse(v.current(captured));assertTrue(v.cachedCurrentDiagnostic().contains("NATIVE_ATTEMPT_REVISION_CHANGED"));assertTrue(v.cachedCurrentDiagnostic().contains("newUnscoped=true"));assertFalse(v.current(captured));}
+ @Test void sourceNativeInflightIsDifferentFromCompletedForeignAttempt(){var v=new NormalIdleInputVersion();var captured=v.snapshot();v.begin(null,true);assertFalse(v.current(captured));assertTrue(v.cachedCurrentDiagnostic().contains("NATIVE_INVOCATION_IN_FLIGHT"));v.end(false);assertFalse(v.current(captured));assertTrue(v.cachedCurrentDiagnostic().contains("first=NATIVE_INVOCATION_IN_FLIGHT"));assertTrue(v.cachedCurrentDiagnostic().contains("last=NATIVE_ATTEMPT_REVISION_CHANGED"));}
+ @Test void offthreadUnknownNeverBecomesPermissionFromDiagnosticRead(){var v=new NormalIdleInputVersion();var captured=v.snapshot();v.begin(null,false);assertFalse(v.current(captured));assertTrue(v.cachedCurrentDiagnostic().contains("NATIVE_HISTORY_UNKNOWN"));String before=v.cachedCurrentDiagnostic();assertEquals(before,v.cachedCurrentDiagnostic());assertNull(v.snapshot());}
+ @Test void sameRevisionSnapshotFromDifferentNativeObjectRefuses(){var v=new NormalIdleInputVersion();var foreign=new NormalIdleInputVersion();assertFalse(v.current(foreign.snapshot()));assertTrue(v.cachedCurrentDiagnostic().contains("HISTORY_OBJECT_REPLACED"));}
+ @Test void diagnosticDoesNotRefreshSnapshotAfterLegitimateNewOwnAttempt(){var v=new NormalIdleInputVersion();var old=v.snapshot();v.begin(new Object(),true);v.end(false);assertFalse(v.current(old));assertTrue(v.cachedCurrentDiagnostic().contains("newUnscoped=false"));assertTrue(v.current(v.snapshot()));assertFalse(v.current(old));}
+}

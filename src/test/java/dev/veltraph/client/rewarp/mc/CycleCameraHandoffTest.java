@@ -1,0 +1,24 @@
+package dev.veltraph.client.rewarp.mc;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class CycleCameraHandoffTest {
+ private static final class Actor extends dev.veltraph.client.core.AbstractModule {
+  int stopped;RuntimeException error;
+  Actor(String id){super(id,id,dev.veltraph.client.core.ModuleCategory.INTERNAL);}
+  public void onEnable(){} public void onTick(){} public void onDisable(){stopped++;if(error!=null)throw error;}
+ }
+ @Test void exactPartialActivationRetiresOnce(){var m=new dev.veltraph.client.core.ModuleManager();var a=new Actor("a");m.register(a);m.enable("a");var r=CycleCameraHandoff.retirement(m,m.lifecycleSnapshot(),a);assertTrue(r.retire());assertFalse(a.isEnabled());assertEquals(1,a.stopped);assertFalse(r.retire());}
+ @Test void disableReenableSameObjectCannotBeRetiredByOldActivation(){var m=new dev.veltraph.client.core.ModuleManager();var a=new Actor("a");m.register(a);m.enable("a");var r=CycleCameraHandoff.retirement(m,m.lifecycleSnapshot(),a);m.disable("a");m.enable("a");assertFalse(r.retire());assertTrue(a.isEnabled());assertEquals(1,a.stopped);}
+ @Test void foreignInputBindingDoesNotStrandOriginalLogicalActivation(){var m=new dev.veltraph.client.core.ModuleManager();var a=new Actor("a");var foreign=new Actor("foreign");m.register(a);m.register(foreign);m.enable("a");var r=CycleCameraHandoff.retirement(m,m.lifecycleSnapshot(),a);m.leasedInputOwner(()->foreign);assertTrue(r.retire());assertFalse(a.isEnabled());assertEquals(1,a.stopped);assertEquals(0,foreign.stopped);}
+ @Test void originalDisableErrorPropagatesAndCannotRetry(){var m=new dev.veltraph.client.core.ModuleManager();var a=new Actor("a");m.register(a);m.enable("a");var r=CycleCameraHandoff.retirement(m,m.lifecycleSnapshot(),a);var error=new IllegalStateException("own-disable");a.error=error;assertSame(error,assertThrows(IllegalStateException.class,r::retire));assertFalse(r.retire());assertEquals(1,a.stopped);}
+ @Test void actualFailureSequenceCallbackReenablePreservesNewActor(){var m=new dev.veltraph.client.core.ModuleManager();var a=new Actor("a");m.register(a);m.enable("a");var r=CycleCameraHandoff.retirement(m,m.lifecycleSnapshot(),a);CycleCameraHandoff.retireAfterFailure(r,()->{m.disable("a");m.enable("a");});assertTrue(a.isEnabled());assertEquals(1,a.stopped);}
+ @Test void actualFailureSequenceCallbackErrorPreservesExactErrorAndNewActor(){var m=new dev.veltraph.client.core.ModuleManager();var a=new Actor("a");m.register(a);m.enable("a");var r=CycleCameraHandoff.retirement(m,m.lifecycleSnapshot(),a);var error=new IllegalStateException("cancel callback");assertSame(error,assertThrows(IllegalStateException.class,()->CycleCameraHandoff.retireAfterFailure(r,()->{m.disable("a");m.enable("a");throw error;})));assertTrue(a.isEnabled());assertEquals(1,a.stopped);}
+ @Test void actualFailureSequenceNormalCancelRetiresOnlyOldActor(){var m=new dev.veltraph.client.core.ModuleManager();var a=new Actor("a");m.register(a);m.enable("a");var r=CycleCameraHandoff.retirement(m,m.lifecycleSnapshot(),a);CycleCameraHandoff.retireAfterFailure(r,()->{});assertFalse(a.isEnabled());assertEquals(1,a.stopped);}
+ @Test void noPauseHasNoOriginalCameraOwner(){assertNull(new CycleCameraHandoff().pendingSource());}
+ @Test void originalFarmRemainsOnlyUntilActualCompletion(){var h=new CycleCameraHandoff();var source=new Object();var farm=new Object();var a=h.begin(source,farm);assertSame(source,h.pendingSource());assertSame(farm,h.originalFarm(a));assertTrue(h.complete(a));assertNull(h.pendingSource());assertNull(h.originalFarm(a));assertFalse(h.complete(a));h.retire(a);}
+ @Test void reentrantBeginRevokesOriginalAndCannotMintReplacement(){var h=new CycleCameraHandoff();var a=h.begin(new Object(),new Object());assertNull(h.begin(new Object(),new Object()));assertNull(h.pendingSource());assertFalse(h.complete(a));}
+ @Test void manualCancellationRefusesLateNormalCompletion(){var h=new CycleCameraHandoff();var a=h.begin(new Object(),new Object());h.cancel();assertFalse(h.complete(a));assertNull(h.originalFarm(a));}
+ @Test void foreignAttemptCannotCompleteOrRetireOriginal(){var h=new CycleCameraHandoff();var other=new CycleCameraHandoff();var a=h.begin(new Object(),new Object());var foreign=other.begin(new Object(),new Object());assertFalse(h.complete(foreign));h.retire(foreign);assertNotNull(h.originalFarm(a));assertTrue(h.complete(a));}
+ @Test void staleFinallyCannotClearNewPause(){var h=new CycleCameraHandoff();var old=h.begin(new Object(),new Object());h.retire(old);var fresh=h.begin(new Object(),new Object());h.retire(old);assertNotNull(h.originalFarm(fresh));assertFalse(h.complete(old));assertTrue(h.complete(fresh));}
+ @Test void missingSourceOrFarmCannotBegin(){var h=new CycleCameraHandoff();assertNull(h.begin(null,new Object()));assertNull(h.begin(new Object(),null));assertNull(h.pendingSource());}
+}

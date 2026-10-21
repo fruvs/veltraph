@@ -1,0 +1,5969 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-01",
+  "plants": [
+    {
+      "name": "Wheat",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 8,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 19,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 648
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 649
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 650
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 651
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 652
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 653
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 654
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Harvest Boost",
+            "line": 655
+          },
+          {
+            "index": 8,
+            "text": "Increases Yield by +20%",
+            "line": 656
+          }
+        ]
+      }
+    },
+    {
+      "name": "Carrot",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 8,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 20,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 809
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 810
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 811
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 812
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 813
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 814
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 815
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 XP Boost",
+            "line": 816
+          },
+          {
+            "index": 8,
+            "text": "Increases Farming XP of adjacent",
+            "line": 817
+          },
+          {
+            "index": 9,
+            "text": "crops by +20%",
+            "line": 818
+          }
+        ]
+      }
+    },
+    {
+      "name": "Potato",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 8,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 21,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 989
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 990
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 991
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 992
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 993
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 994
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 995
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Immunity",
+            "line": 996
+          },
+          {
+            "index": 8,
+            "text": "Provides Immunity to negative effects.",
+            "line": 997
+          }
+        ]
+      }
+    },
+    {
+      "name": "Pumpkin",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 11,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 22,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 1154
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1155
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1156
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 1157
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 11",
+            "line": 1158
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1159
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 1160
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Bonus Drops",
+            "line": 1161
+          },
+          {
+            "index": 8,
+            "text": "Harvested items additionally roll",
+            "line": 1162
+          },
+          {
+            "index": 9,
+            "text": "from an extra loot pool.",
+            "line": 1163
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sugar Cane",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Dirt, Sand",
+      "growthStages": 8,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 23,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 1333
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1334
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1335
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Dirt, Sand",
+            "line": 1336
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 1337
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1338
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 1339
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Improved XP Boost",
+            "line": 1340
+          },
+          {
+            "index": 8,
+            "text": "Increases Farming XP of adjacent",
+            "line": 1341
+          },
+          {
+            "index": 9,
+            "text": "crops by +30%",
+            "line": 1342
+          },
+          {
+            "index": 10,
+            "text": "\u27a4 Harvest Loss",
+            "line": 1343
+          },
+          {
+            "index": 11,
+            "text": "Decreases Yield by -20%",
+            "line": 1344
+          }
+        ]
+      }
+    },
+    {
+      "name": "Melon",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 11,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": "MELON",
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 24,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 1551
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1552
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1553
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 1554
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 11",
+            "line": 1555
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1556
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 1557
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Water Retain",
+            "line": 1558
+          },
+          {
+            "index": 8,
+            "text": "Retains watering status of adjacent",
+            "line": 1559
+          },
+          {
+            "index": 9,
+            "text": "crops by +50%",
+            "line": 1560
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cactus",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Sand",
+      "growthStages": 8,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 25,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 1701
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1702
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1703
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Sand",
+            "line": 1704
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 1705
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1706
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 1707
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Improved Water Retain",
+            "line": 1708
+          },
+          {
+            "index": 8,
+            "text": "Retains watering status of adjacent",
+            "line": 1709
+          },
+          {
+            "index": 9,
+            "text": "crops by +100%",
+            "line": 1710
+          },
+          {
+            "index": 10,
+            "text": "\u27a4 Harvest Loss",
+            "line": 1711
+          },
+          {
+            "index": 11,
+            "text": "Decreases Yield by -20%",
+            "line": 1712
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cocoa Beans",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 6,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 29,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 1997
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1998
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1999
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 2000
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 6",
+            "line": 2001
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2002
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 2003
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Immunity",
+            "line": 2004
+          },
+          {
+            "index": 8,
+            "text": "Provides Immunity to negative effects.",
+            "line": 2005
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mushrooms",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Mycelium",
+      "growthStages": 6,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": "RED_MUSHROOM",
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 30,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 2154
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2155
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2156
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Mycelium",
+            "line": 2157
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 6",
+            "line": 2158
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2159
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 2160
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Improved Harvest Boost",
+            "line": 2161
+          },
+          {
+            "index": 8,
+            "text": "Increases Yield by +30%",
+            "line": 2162
+          },
+          {
+            "index": 9,
+            "text": "\u27a4 Water Drain",
+            "line": 2163
+          },
+          {
+            "index": 10,
+            "text": "Reduces watering status of nearby",
+            "line": 2164
+          },
+          {
+            "index": 11,
+            "text": "crops by -30%",
+            "line": 2165
+          }
+        ]
+      }
+    },
+    {
+      "name": "Nether Wart",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Soul Sand",
+      "growthStages": 8,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 31,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 2337
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2338
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2339
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Soul Sand",
+            "line": 2340
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 2341
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2342
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 2343
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Improved Harvest Boost",
+            "line": 2344
+          },
+          {
+            "index": 8,
+            "text": "Increases Yield by +30%",
+            "line": 2345
+          },
+          {
+            "index": 9,
+            "text": "\u27a4 XP Loss",
+            "line": 2346
+          },
+          {
+            "index": 10,
+            "text": "Reduces Farming XP of adjacent",
+            "line": 2347
+          },
+          {
+            "index": 11,
+            "text": "crops by -20%",
+            "line": 2348
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sunflower & Moonflower",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 15,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": "DOUBLE_PLANT",
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 32,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 2547
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2548
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2549
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 2550
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 15",
+            "line": 2551
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2552
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 2553
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Bonus Drops",
+            "line": 2554
+          },
+          {
+            "index": 8,
+            "text": "Harvested items additionally roll",
+            "line": 2555
+          },
+          {
+            "index": 9,
+            "text": "from an extra loot pool.",
+            "line": 2556
+          }
+        ]
+      }
+    },
+    {
+      "name": "Wild Rose",
+      "kind": "Base Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 15,
+      "recipeDisclosure": "not_applicable",
+      "spreadingConditionText": [],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": "WILD_ROSE",
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:30.823Z",
+        "title": "Crop Guide",
+        "slot": 33,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Base Crop",
+            "line": 2696
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2697
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2698
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 2699
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 15",
+            "line": 2700
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2701
+          },
+          {
+            "index": 6,
+            "text": "Effects",
+            "line": 2702
+          },
+          {
+            "index": 7,
+            "text": "\u27a4 Effect Spread",
+            "line": 2703
+          },
+          {
+            "index": 8,
+            "text": "Spreads other buffs and debuffs on",
+            "line": 2704
+          },
+          {
+            "index": 9,
+            "text": "the current crop to adjacent crops.",
+            "line": 2705
+          }
+        ]
+      }
+    },
+    {
+      "name": "Dustgrain",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 0,
+      "recipeDisclosure": "visible",
+      "spreadingConditionText": [
+        "2x Wheat"
+      ],
+      "requirements": [
+        {
+          "name": "Wheat",
+          "count": 2
+        }
+      ],
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": "DUSTGRAIN",
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 10,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 351
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 352
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 353
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 354
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 355
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 356
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 357
+          },
+          {
+            "index": 7,
+            "text": "2x Wheat",
+            "line": 358
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 359
+          },
+          {
+            "index": 9,
+            "text": "DISCOVERED",
+            "line": 360
+          },
+          {
+            "index": 10,
+            "text": "",
+            "line": 361
+          },
+          {
+            "index": 11,
+            "text": "Click to preview mutation layout!",
+            "line": 362
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ashwreath",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Soul Sand",
+      "growthStages": 0,
+      "recipeDisclosure": "visible",
+      "spreadingConditionText": [
+        "2x Nether Wart",
+        "2x Fire"
+      ],
+      "requirements": [
+        {
+          "name": "Nether Wart",
+          "count": 2
+        },
+        {
+          "name": "Fire",
+          "count": 2
+        }
+      ],
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 11,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 519
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 520
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 521
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Soul Sand",
+            "line": 522
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 523
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 524
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 525
+          },
+          {
+            "index": 7,
+            "text": "2x Nether Wart",
+            "line": 526
+          },
+          {
+            "index": 8,
+            "text": "2x Fire",
+            "line": 527
+          },
+          {
+            "index": 9,
+            "text": "",
+            "line": 528
+          },
+          {
+            "index": 10,
+            "text": "UNKNOWN",
+            "line": 529
+          },
+          {
+            "index": 11,
+            "text": "",
+            "line": 530
+          },
+          {
+            "index": 12,
+            "text": "Click to preview mutation layout!",
+            "line": 531
+          }
+        ]
+      }
+    },
+    {
+      "name": "Choconut",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 0,
+      "recipeDisclosure": "visible",
+      "spreadingConditionText": [
+        "2x Cocoa Beans"
+      ],
+      "requirements": [
+        {
+          "name": "Cocoa Beans",
+          "count": 2
+        }
+      ],
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 12,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 687
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 688
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 689
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 690
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 691
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 692
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 693
+          },
+          {
+            "index": 7,
+            "text": "2x Cocoa Beans",
+            "line": 694
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 695
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 696
+          },
+          {
+            "index": 10,
+            "text": "",
+            "line": 697
+          },
+          {
+            "index": 11,
+            "text": "Click to preview mutation layout!",
+            "line": 698
+          }
+        ]
+      }
+    },
+    {
+      "name": "Gloomgourd",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 0,
+      "recipeDisclosure": "visible",
+      "spreadingConditionText": [
+        "1x Pumpkin",
+        "1x Melon"
+      ],
+      "requirements": [
+        {
+          "name": "Pumpkin",
+          "count": 1
+        },
+        {
+          "name": "Melon",
+          "count": 1
+        }
+      ],
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 13,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 840
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 841
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 842
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 843
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 844
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 845
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 846
+          },
+          {
+            "index": 7,
+            "text": "1x Pumpkin",
+            "line": 847
+          },
+          {
+            "index": 8,
+            "text": "1x Melon",
+            "line": 848
+          },
+          {
+            "index": 9,
+            "text": "",
+            "line": 849
+          },
+          {
+            "index": 10,
+            "text": "UNKNOWN",
+            "line": 850
+          },
+          {
+            "index": 11,
+            "text": "",
+            "line": 851
+          },
+          {
+            "index": 12,
+            "text": "Click to preview mutation layout!",
+            "line": 852
+          }
+        ]
+      }
+    },
+    {
+      "name": "Lonelily",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 0,
+      "recipeDisclosure": "visible",
+      "spreadingConditionText": [
+        "0 adjacent crops"
+      ],
+      "requirements": [],
+      "zeroAdjacentCrops": true,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 14,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1008
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1009
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1010
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 1011
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 1012
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1013
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1014
+          },
+          {
+            "index": 7,
+            "text": "0 adjacent crops",
+            "line": 1015
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 1016
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 1017
+          },
+          {
+            "index": 10,
+            "text": "",
+            "line": 1018
+          },
+          {
+            "index": 11,
+            "text": "Click to preview mutation layout!",
+            "line": 1019
+          }
+        ]
+      }
+    },
+    {
+      "name": "Scourroot",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 0,
+      "recipeDisclosure": "visible",
+      "spreadingConditionText": [
+        "1x Potato",
+        "1x Carrot"
+      ],
+      "requirements": [
+        {
+          "name": "Potato",
+          "count": 1
+        },
+        {
+          "name": "Carrot",
+          "count": 1
+        }
+      ],
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 15,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1161
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1162
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1163
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 1164
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 1165
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1166
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1167
+          },
+          {
+            "index": 7,
+            "text": "1x Potato",
+            "line": 1168
+          },
+          {
+            "index": 8,
+            "text": "1x Carrot",
+            "line": 1169
+          },
+          {
+            "index": 9,
+            "text": "",
+            "line": 1170
+          },
+          {
+            "index": 10,
+            "text": "UNKNOWN",
+            "line": 1171
+          },
+          {
+            "index": 11,
+            "text": "",
+            "line": 1172
+          },
+          {
+            "index": 12,
+            "text": "Click to preview mutation layout!",
+            "line": 1173
+          }
+        ]
+      }
+    },
+    {
+      "name": "Shadevine",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland, Sand",
+      "growthStages": 0,
+      "recipeDisclosure": "visible",
+      "spreadingConditionText": [
+        "1x Cactus",
+        "1x Sugar Cane"
+      ],
+      "requirements": [
+        {
+          "name": "Cactus",
+          "count": 1
+        },
+        {
+          "name": "Sugar Cane",
+          "count": 1
+        }
+      ],
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 16,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1329
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1330
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1331
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland, Sand",
+            "line": 1332
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 1333
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1334
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1335
+          },
+          {
+            "index": 7,
+            "text": "1x Cactus",
+            "line": 1336
+          },
+          {
+            "index": 8,
+            "text": "1x Sugar Cane",
+            "line": 1337
+          },
+          {
+            "index": 9,
+            "text": "",
+            "line": 1338
+          },
+          {
+            "index": 10,
+            "text": "UNKNOWN",
+            "line": 1339
+          },
+          {
+            "index": 11,
+            "text": "",
+            "line": 1340
+          },
+          {
+            "index": 12,
+            "text": "Click to preview mutation layout!",
+            "line": 1341
+          }
+        ]
+      }
+    },
+    {
+      "name": "Veilshroom",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Mycelium",
+      "growthStages": 0,
+      "recipeDisclosure": "visible",
+      "spreadingConditionText": [
+        "1x Red Mushroom",
+        "1x Brown Mushroom"
+      ],
+      "requirements": [
+        {
+          "name": "Red Mushroom",
+          "count": 1
+        },
+        {
+          "name": "Brown Mushroom",
+          "count": 1
+        }
+      ],
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 19,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1571
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1572
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1573
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Mycelium",
+            "line": 1574
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 1575
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1576
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1577
+          },
+          {
+            "index": 7,
+            "text": "1x Red Mushroom",
+            "line": 1578
+          },
+          {
+            "index": 8,
+            "text": "1x Brown Mushroom",
+            "line": 1579
+          },
+          {
+            "index": 9,
+            "text": "",
+            "line": 1580
+          },
+          {
+            "index": 10,
+            "text": "UNKNOWN",
+            "line": 1581
+          },
+          {
+            "index": 11,
+            "text": "",
+            "line": 1582
+          },
+          {
+            "index": 12,
+            "text": "Click to preview mutation layout!",
+            "line": 1583
+          }
+        ]
+      }
+    },
+    {
+      "name": "Witherbloom",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Soul Sand",
+      "growthStages": 0,
+      "recipeDisclosure": "visible",
+      "spreadingConditionText": [
+        "4x Dead Plant"
+      ],
+      "requirements": [
+        {
+          "name": "Dead Plant",
+          "count": 4
+        }
+      ],
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 20,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1739
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1740
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1741
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Soul Sand",
+            "line": 1742
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 1743
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1744
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1745
+          },
+          {
+            "index": 7,
+            "text": "4x Dead Plant",
+            "line": 1746
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 1747
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 1748
+          },
+          {
+            "index": 10,
+            "text": "",
+            "line": 1749
+          },
+          {
+            "index": 11,
+            "text": "Click to preview mutation layout!",
+            "line": 1750
+          }
+        ]
+      }
+    },
+    {
+      "name": "Chocoberry",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 6,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 21,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1892
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1893
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1894
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 1895
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 6",
+            "line": 1896
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1897
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1898
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 1899
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 1900
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 1901
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cindershade",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Soul Sand",
+      "growthStages": 8,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 22,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 2028
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2029
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2030
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Soul Sand",
+            "line": 2031
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 2032
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2033
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 2034
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 2035
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 2036
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 2037
+          }
+        ]
+      }
+    },
+    {
+      "name": "Coalroot",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 8,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 23,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 2164
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2165
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2166
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 2167
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 2168
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2169
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 2170
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 2171
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 2172
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 2173
+          }
+        ]
+      }
+    },
+    {
+      "name": "Creambloom",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 6,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 24,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 2300
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2301
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2302
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 2303
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 6",
+            "line": 2304
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2305
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 2306
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 2307
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 2308
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 2309
+          }
+        ]
+      }
+    },
+    {
+      "name": "Duskbloom",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 8,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 25,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 2436
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2437
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2438
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 2439
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 2440
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2441
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 2442
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 2443
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 2444
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 2445
+          }
+        ]
+      }
+    },
+    {
+      "name": "Thornshade",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 8,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 28,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 2638
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2639
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2640
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 2641
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 2642
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2643
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 2644
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 2645
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 2646
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 2647
+          }
+        ]
+      }
+    },
+    {
+      "name": "Blastberry",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Sand",
+      "growthStages": 6,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 29,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 2774
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2775
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2776
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Sand",
+            "line": 2777
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 6",
+            "line": 2778
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2779
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 2780
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 2781
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 2782
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 2783
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cheesebite",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 10,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 30,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 2910
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 2911
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 2912
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 2913
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 10",
+            "line": 2914
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 2915
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 2916
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 2917
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 2918
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 2919
+          }
+        ]
+      }
+    },
+    {
+      "name": "Chloronite",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 10,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 31,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 3046
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 3047
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 3048
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 3049
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 10",
+            "line": 3050
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 3051
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 3052
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 3053
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 3054
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 3055
+          }
+        ]
+      }
+    },
+    {
+      "name": "Do-not-eat-shroom",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 8,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 32,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 3182
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 3183
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 3184
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 3185
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 8",
+            "line": 3186
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 3187
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 3188
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 3189
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 3190
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 3191
+          }
+        ]
+      }
+    },
+    {
+      "name": "Fleshtrap",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 14,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 33,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 3318
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 3319
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 3320
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 3321
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 14",
+            "line": 3322
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 3323
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 3324
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 3325
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 3326
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 3327
+          }
+        ]
+      }
+    },
+    {
+      "name": "Magic Jellybean",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Sand",
+      "growthStages": 120,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 34,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 3454
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 3455
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 3456
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Sand",
+            "line": 3457
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 120",
+            "line": 3458
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 3459
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 3460
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 3461
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 3462
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 3463
+          }
+        ]
+      }
+    },
+    {
+      "name": "Noctilume",
+      "kind": "Mutation Crop",
+      "size": "2x2",
+      "growthSurface": "Farmland",
+      "growthStages": 4,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 37,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 3656
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 3657
+          },
+          {
+            "index": 2,
+            "text": "Size: 2x2",
+            "line": 3658
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 3659
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 4",
+            "line": 3660
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 3661
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 3662
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 3663
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 3664
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 3665
+          }
+        ]
+      }
+    },
+    {
+      "name": "Snoozling",
+      "kind": "Mutation Crop",
+      "size": "3x3",
+      "growthSurface": "Farmland",
+      "growthStages": 20,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 38,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 3792
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 3793
+          },
+          {
+            "index": 2,
+            "text": "Size: 3x3",
+            "line": 3794
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 3795
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 20",
+            "line": 3796
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 3797
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 3798
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 3799
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 3800
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 3801
+          }
+        ]
+      }
+    },
+    {
+      "name": "Soggybud",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 10,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 39,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 3928
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 3929
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 3930
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 3931
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 10",
+            "line": 3932
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 3933
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 3934
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 3935
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 3936
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 3937
+          }
+        ]
+      }
+    },
+    {
+      "name": "Turtlellini",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 0,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 40,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 4064
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 4065
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 4066
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 4067
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 4068
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 4069
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 4070
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 4071
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 4072
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 4073
+          }
+        ]
+      }
+    },
+    {
+      "name": "Chorus Fruit",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "End Stone",
+      "growthStages": 12,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 41,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 4200
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 4201
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 4202
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: End Stone",
+            "line": 4203
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 12",
+            "line": 4204
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 4205
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 4206
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 4207
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 4208
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 4209
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlantBoy Advance",
+      "kind": "Mutation Crop",
+      "size": "2x2",
+      "growthSurface": "Farmland",
+      "growthStages": 12,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 42,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 4336
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 4337
+          },
+          {
+            "index": 2,
+            "text": "Size: 2x2",
+            "line": 4338
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 4339
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 12",
+            "line": 4340
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 4341
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 4342
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 4343
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 4344
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 4345
+          }
+        ]
+      }
+    },
+    {
+      "name": "Puffercloud",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 14,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:51.977Z",
+        "title": "(1/2) All Mutations",
+        "slot": 43,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 4472
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 4473
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 4474
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 4475
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 14",
+            "line": 4476
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 4477
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 4478
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 4479
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 4480
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 4481
+          }
+        ]
+      }
+    },
+    {
+      "name": "Shellfruit",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 0,
+      "recipeDisclosure": "secret",
+      "spreadingConditionText": [
+        "Secret"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 10,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 351
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 352
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 353
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 354
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 0",
+            "line": 355
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 356
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 357
+          },
+          {
+            "index": 7,
+            "text": "Secret",
+            "line": 358
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 359
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 360
+          }
+        ]
+      }
+    },
+    {
+      "name": "Startlevine",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 12,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 11,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 487
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 488
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 489
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 490
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 12",
+            "line": 491
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 492
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 493
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 494
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 495
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 496
+          }
+        ]
+      }
+    },
+    {
+      "name": "Stoplight Petal",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 12,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 12,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 623
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 624
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 625
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 626
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 12",
+            "line": 627
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 628
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 629
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 630
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 631
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 632
+          }
+        ]
+      }
+    },
+    {
+      "name": "Thunderling",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 16,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 13,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 759
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 760
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 761
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 762
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 16",
+            "line": 763
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 764
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 765
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 766
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 767
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 768
+          }
+        ]
+      }
+    },
+    {
+      "name": "Zombud",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Soul Sand",
+      "growthStages": 16,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 14,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 895
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 896
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 897
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Soul Sand",
+            "line": 898
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 16",
+            "line": 899
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 900
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 901
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 902
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 903
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 904
+          }
+        ]
+      }
+    },
+    {
+      "name": "All-in Aloe",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Sand",
+      "growthStages": 27,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 15,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1031
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1032
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1033
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Sand",
+            "line": 1034
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 27",
+            "line": 1035
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1036
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1037
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 1038
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 1039
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 1040
+          }
+        ]
+      }
+    },
+    {
+      "name": "Devourer",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Farmland",
+      "growthStages": 16,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 16,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1167
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1168
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1169
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 1170
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 16",
+            "line": 1171
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1172
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1173
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 1174
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 1175
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 1176
+          }
+        ]
+      }
+    },
+    {
+      "name": "Glasscorn",
+      "kind": "Mutation Crop",
+      "size": "2x2",
+      "growthSurface": "Sand",
+      "growthStages": 9,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 19,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1369
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1370
+          },
+          {
+            "index": 2,
+            "text": "Size: 2x2",
+            "line": 1371
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Sand",
+            "line": 1372
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 9",
+            "line": 1373
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1374
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1375
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 1376
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 1377
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 1378
+          }
+        ]
+      }
+    },
+    {
+      "name": "Godseed",
+      "kind": "Mutation Crop",
+      "size": "3x3",
+      "growthSurface": "Farmland",
+      "growthStages": 40,
+      "recipeDisclosure": "secret",
+      "spreadingConditionText": [
+        "Secret"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 20,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1505
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1506
+          },
+          {
+            "index": 2,
+            "text": "Size: 3x3",
+            "line": 1507
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Farmland",
+            "line": 1508
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 40",
+            "line": 1509
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1510
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1511
+          },
+          {
+            "index": 7,
+            "text": "Secret",
+            "line": 1512
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 1513
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 1514
+          }
+        ]
+      }
+    },
+    {
+      "name": "Phantomleaf",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "Soul Sand",
+      "growthStages": 15,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 21,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1641
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1642
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1643
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: Soul Sand",
+            "line": 1644
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 15",
+            "line": 1645
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1646
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1647
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 1648
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 1649
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 1650
+          }
+        ]
+      }
+    },
+    {
+      "name": "Timestalk",
+      "kind": "Mutation Crop",
+      "size": "1x1",
+      "growthSurface": "End Stone",
+      "growthStages": 14,
+      "recipeDisclosure": "hidden",
+      "spreadingConditionText": [
+        "???"
+      ],
+      "requirements": null,
+      "zeroAdjacentCrops": false,
+      "observedCustomDataId": null,
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:59.122Z",
+        "title": "(2/2) All Mutations",
+        "slot": 22,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Mutation Crop",
+            "line": 1777
+          },
+          {
+            "index": 1,
+            "text": "",
+            "line": 1778
+          },
+          {
+            "index": 2,
+            "text": "Size: 1x1",
+            "line": 1779
+          },
+          {
+            "index": 3,
+            "text": "Growth Surface: End Stone",
+            "line": 1780
+          },
+          {
+            "index": 4,
+            "text": "Growth Stages: 14",
+            "line": 1781
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1782
+          },
+          {
+            "index": 6,
+            "text": "Spreading Conditions",
+            "line": 1783
+          },
+          {
+            "index": 7,
+            "text": "???",
+            "line": 1784
+          },
+          {
+            "index": 8,
+            "text": "",
+            "line": 1785
+          },
+          {
+            "index": 9,
+            "text": "UNKNOWN",
+            "line": 1786
+          }
+        ]
+      }
+    }
+  ],
+  "layoutPreviews": [
+    {
+      "title": "Mutation Layout Preview",
+      "gridColumns": 9,
+      "cells": [
+        {
+          "slot": 21,
+          "name": "Wheat",
+          "lore": [
+            "These can be placed in any order!"
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:52:53.421Z",
+            "title": "Mutation Layout Preview",
+            "slot": 21,
+            "lore": [
+              {
+                "index": 0,
+                "text": "These can be placed in any order!",
+                "line": 714
+              }
+            ]
+          }
+        },
+        {
+          "slot": 22,
+          "name": "Dustgrain",
+          "lore": [
+            "Will spread here!"
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:52:53.421Z",
+            "title": "Mutation Layout Preview",
+            "slot": 22,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Will spread here!",
+                "line": 773
+              }
+            ]
+          }
+        },
+        {
+          "slot": 23,
+          "name": "Wheat",
+          "lore": [
+            "These can be placed in any order!"
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:52:53.421Z",
+            "title": "Mutation Layout Preview",
+            "slot": 23,
+            "lore": [
+              {
+                "index": 0,
+                "text": "These can be placed in any order!",
+                "line": 846
+              }
+            ]
+          }
+        }
+      ],
+      "topologyScope": "Only shown Dustgrain preview; no inferred global adjacency radius or minimum geometry."
+    }
+  ],
+  "diagnostics": [
+    {
+      "observedAtUtc": "2026-10-01T02:53:58.267Z",
+      "targetPosition": null,
+      "bindingStatus": "unbound_menu_observation",
+      "slots": [
+        {
+          "slot": 4,
+          "name": "Dustgrain",
+          "lore": [
+            "Mutation Crop",
+            "",
+            "Size: 1x1",
+            "Growth Surface: Farmland",
+            "Growth Stages: 0"
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:53:58.267Z",
+            "title": "Crop Diagnostics",
+            "slot": 4,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Mutation Crop",
+                "line": 153
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 154
+              },
+              {
+                "index": 2,
+                "text": "Size: 1x1",
+                "line": 155
+              },
+              {
+                "index": 3,
+                "text": "Growth Surface: Farmland",
+                "line": 156
+              },
+              {
+                "index": 4,
+                "text": "Growth Stages: 0",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "slot": 20,
+          "name": "Growth Stage",
+          "lore": [
+            "Age: 107d 4h 02m 49s",
+            "Stage: DEAD",
+            "Next Stage: DEAD",
+            "",
+            "Shows how much the crop has grown."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:53:58.267Z",
+            "title": "Crop Diagnostics",
+            "slot": 20,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Age: 107d 4h 02m 49s",
+                "line": 776
+              },
+              {
+                "index": 1,
+                "text": "Stage: DEAD",
+                "line": 777
+              },
+              {
+                "index": 2,
+                "text": "Next Stage: DEAD",
+                "line": 778
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 779
+              },
+              {
+                "index": 4,
+                "text": "Shows how much the crop has grown.",
+                "line": 780
+              }
+            ]
+          }
+        },
+        {
+          "slot": 21,
+          "name": "Water Level",
+          "lore": [
+            "Water: 100/100",
+            "",
+            "Dead crops don't need water!",
+            "",
+            "Shows how much water the current",
+            "crop has, ranging between -100",
+            "(dead) and 100 (fully watered)."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:53:58.267Z",
+            "title": "Crop Diagnostics",
+            "slot": 21,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Water: 100/100",
+                "line": 872
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 873
+              },
+              {
+                "index": 2,
+                "text": "Dead crops don't need water!",
+                "line": 874
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 875
+              },
+              {
+                "index": 4,
+                "text": "Shows how much water the current",
+                "line": 876
+              },
+              {
+                "index": 5,
+                "text": "crop has, ranging between -100",
+                "line": 877
+              },
+              {
+                "index": 6,
+                "text": "(dead) and 100 (fully watered).",
+                "line": 878
+              }
+            ]
+          }
+        },
+        {
+          "slot": 22,
+          "name": "Applies Effects",
+          "lore": [
+            "",
+            "This crop does not apply any",
+            "effects to adjacent crops.",
+            "",
+            "Shows what effects this crop applies",
+            "to adjacent crops."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:53:58.267Z",
+            "title": "Crop Diagnostics",
+            "slot": 22,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 953
+              },
+              {
+                "index": 1,
+                "text": "This crop does not apply any",
+                "line": 954
+              },
+              {
+                "index": 2,
+                "text": "effects to adjacent crops.",
+                "line": 955
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 956
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects this crop applies",
+                "line": 957
+              },
+              {
+                "index": 5,
+                "text": "to adjacent crops.",
+                "line": 958
+              }
+            ]
+          }
+        },
+        {
+          "slot": 23,
+          "name": "Has Effects",
+          "lore": [
+            "",
+            "This crop had no effects when it",
+            "became fully grown.",
+            "This crop's effects are locked to",
+            "what they were when it first became",
+            "harvestable.",
+            "",
+            "Shows what effects adjacent crops",
+            "apply to this crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:53:58.267Z",
+            "title": "Crop Diagnostics",
+            "slot": 23,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 1040
+              },
+              {
+                "index": 1,
+                "text": "This crop had no effects when it",
+                "line": 1041
+              },
+              {
+                "index": 2,
+                "text": "became fully grown.",
+                "line": 1042
+              },
+              {
+                "index": 3,
+                "text": "This crop's effects are locked to",
+                "line": 1043
+              },
+              {
+                "index": 4,
+                "text": "what they were when it first became",
+                "line": 1044
+              },
+              {
+                "index": 5,
+                "text": "harvestable.",
+                "line": 1045
+              },
+              {
+                "index": 6,
+                "text": "",
+                "line": 1046
+              },
+              {
+                "index": 7,
+                "text": "Shows what effects adjacent crops",
+                "line": 1047
+              },
+              {
+                "index": 8,
+                "text": "apply to this crop.",
+                "line": 1048
+              }
+            ]
+          }
+        },
+        {
+          "slot": 24,
+          "name": "Growth Status",
+          "lore": [
+            "Status: DEAD",
+            "Cause of Death: DECAY",
+            "",
+            "Shows the current growth status of",
+            "the crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:53:58.267Z",
+            "title": "Crop Diagnostics",
+            "slot": 24,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Status: DEAD",
+                "line": 1124
+              },
+              {
+                "index": 1,
+                "text": "Cause of Death: DECAY",
+                "line": 1125
+              },
+              {
+                "index": 2,
+                "text": "",
+                "line": 1126
+              },
+              {
+                "index": 3,
+                "text": "Shows the current growth status of",
+                "line": 1127
+              },
+              {
+                "index": 4,
+                "text": "the crop.",
+                "line": 1128
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "observedAtUtc": "2026-10-01T02:54:05.572Z",
+      "targetPosition": null,
+      "bindingStatus": "unbound_menu_observation",
+      "slots": [
+        {
+          "slot": 4,
+          "name": "Dustgrain",
+          "lore": [
+            "Mutation Crop",
+            "",
+            "Size: 1x1",
+            "Growth Surface: Farmland",
+            "Growth Stages: 0"
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:54:05.572Z",
+            "title": "Crop Diagnostics",
+            "slot": 4,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Mutation Crop",
+                "line": 153
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 154
+              },
+              {
+                "index": 2,
+                "text": "Size: 1x1",
+                "line": 155
+              },
+              {
+                "index": 3,
+                "text": "Growth Surface: Farmland",
+                "line": 156
+              },
+              {
+                "index": 4,
+                "text": "Growth Stages: 0",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "slot": 20,
+          "name": "Growth Stage",
+          "lore": [
+            "Age: 107d 4h 02m 57s",
+            "Stage: DEAD",
+            "Next Stage: DEAD",
+            "",
+            "Shows how much the crop has grown."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:54:05.572Z",
+            "title": "Crop Diagnostics",
+            "slot": 20,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Age: 107d 4h 02m 57s",
+                "line": 776
+              },
+              {
+                "index": 1,
+                "text": "Stage: DEAD",
+                "line": 777
+              },
+              {
+                "index": 2,
+                "text": "Next Stage: DEAD",
+                "line": 778
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 779
+              },
+              {
+                "index": 4,
+                "text": "Shows how much the crop has grown.",
+                "line": 780
+              }
+            ]
+          }
+        },
+        {
+          "slot": 21,
+          "name": "Water Level",
+          "lore": [
+            "Water: 100/100",
+            "",
+            "Dead crops don't need water!",
+            "",
+            "Shows how much water the current",
+            "crop has, ranging between -100",
+            "(dead) and 100 (fully watered)."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:54:05.572Z",
+            "title": "Crop Diagnostics",
+            "slot": 21,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Water: 100/100",
+                "line": 872
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 873
+              },
+              {
+                "index": 2,
+                "text": "Dead crops don't need water!",
+                "line": 874
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 875
+              },
+              {
+                "index": 4,
+                "text": "Shows how much water the current",
+                "line": 876
+              },
+              {
+                "index": 5,
+                "text": "crop has, ranging between -100",
+                "line": 877
+              },
+              {
+                "index": 6,
+                "text": "(dead) and 100 (fully watered).",
+                "line": 878
+              }
+            ]
+          }
+        },
+        {
+          "slot": 22,
+          "name": "Applies Effects",
+          "lore": [
+            "",
+            "This crop does not apply any",
+            "effects to adjacent crops.",
+            "",
+            "Shows what effects this crop applies",
+            "to adjacent crops."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:54:05.572Z",
+            "title": "Crop Diagnostics",
+            "slot": 22,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 953
+              },
+              {
+                "index": 1,
+                "text": "This crop does not apply any",
+                "line": 954
+              },
+              {
+                "index": 2,
+                "text": "effects to adjacent crops.",
+                "line": 955
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 956
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects this crop applies",
+                "line": 957
+              },
+              {
+                "index": 5,
+                "text": "to adjacent crops.",
+                "line": 958
+              }
+            ]
+          }
+        },
+        {
+          "slot": 23,
+          "name": "Has Effects",
+          "lore": [
+            "",
+            "This crop had no effects when it",
+            "became fully grown.",
+            "This crop's effects are locked to",
+            "what they were when it first became",
+            "harvestable.",
+            "",
+            "Shows what effects adjacent crops",
+            "apply to this crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:54:05.572Z",
+            "title": "Crop Diagnostics",
+            "slot": 23,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 1040
+              },
+              {
+                "index": 1,
+                "text": "This crop had no effects when it",
+                "line": 1041
+              },
+              {
+                "index": 2,
+                "text": "became fully grown.",
+                "line": 1042
+              },
+              {
+                "index": 3,
+                "text": "This crop's effects are locked to",
+                "line": 1043
+              },
+              {
+                "index": 4,
+                "text": "what they were when it first became",
+                "line": 1044
+              },
+              {
+                "index": 5,
+                "text": "harvestable.",
+                "line": 1045
+              },
+              {
+                "index": 6,
+                "text": "",
+                "line": 1046
+              },
+              {
+                "index": 7,
+                "text": "Shows what effects adjacent crops",
+                "line": 1047
+              },
+              {
+                "index": 8,
+                "text": "apply to this crop.",
+                "line": 1048
+              }
+            ]
+          }
+        },
+        {
+          "slot": 24,
+          "name": "Growth Status",
+          "lore": [
+            "Status: DEAD",
+            "Cause of Death: DECAY",
+            "",
+            "Shows the current growth status of",
+            "the crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:54:05.572Z",
+            "title": "Crop Diagnostics",
+            "slot": 24,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Status: DEAD",
+                "line": 1124
+              },
+              {
+                "index": 1,
+                "text": "Cause of Death: DECAY",
+                "line": 1125
+              },
+              {
+                "index": 2,
+                "text": "",
+                "line": 1126
+              },
+              {
+                "index": 3,
+                "text": "Shows the current growth status of",
+                "line": 1127
+              },
+              {
+                "index": 4,
+                "text": "the crop.",
+                "line": 1128
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "observedAtUtc": "2026-10-01T02:55:27.614Z",
+      "targetPosition": null,
+      "bindingStatus": "unbound_menu_observation",
+      "slots": [
+        {
+          "slot": 4,
+          "name": "Wheat",
+          "lore": [
+            "Base Crop",
+            "",
+            "Size: 1x1",
+            "Growth Surface: Farmland",
+            "Growth Stages: 8"
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:27.614Z",
+            "title": "Crop Diagnostics",
+            "slot": 4,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Base Crop",
+                "line": 153
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 154
+              },
+              {
+                "index": 2,
+                "text": "Size: 1x1",
+                "line": 155
+              },
+              {
+                "index": 3,
+                "text": "Growth Surface: Farmland",
+                "line": 156
+              },
+              {
+                "index": 4,
+                "text": "Growth Stages: 8",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "slot": 20,
+          "name": "Growth Stage",
+          "lore": [
+            "Age: 20s",
+            "Stage: 1/8",
+            "Next Stage: 1h 15m 5s",
+            "Decay: 2d 23h 59m 39s",
+            "",
+            "Shows how much the crop has grown."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:27.614Z",
+            "title": "Crop Diagnostics",
+            "slot": 20,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Age: 20s",
+                "line": 763
+              },
+              {
+                "index": 1,
+                "text": "Stage: 1/8",
+                "line": 764
+              },
+              {
+                "index": 2,
+                "text": "Next Stage: 1h 15m 5s",
+                "line": 765
+              },
+              {
+                "index": 3,
+                "text": "Decay: 2d 23h 59m 39s",
+                "line": 766
+              },
+              {
+                "index": 4,
+                "text": "",
+                "line": 767
+              },
+              {
+                "index": 5,
+                "text": "Shows how much the crop has grown.",
+                "line": 768
+              }
+            ]
+          }
+        },
+        {
+          "slot": 21,
+          "name": "Water Level",
+          "lore": [
+            "Water: 100/100",
+            "Lasts for: 1d 7h 15m 05s",
+            "",
+            "This crop has enough water to",
+            "reach full growth!",
+            "",
+            "Shows how much water the current",
+            "crop has, ranging between -100",
+            "(dead) and 100 (fully watered)."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:27.614Z",
+            "title": "Crop Diagnostics",
+            "slot": 21,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Water: 100/100",
+                "line": 876
+              },
+              {
+                "index": 1,
+                "text": "Lasts for: 1d 7h 15m 05s",
+                "line": 877
+              },
+              {
+                "index": 2,
+                "text": "",
+                "line": 878
+              },
+              {
+                "index": 3,
+                "text": "This crop has enough water to",
+                "line": 879
+              },
+              {
+                "index": 4,
+                "text": "reach full growth!",
+                "line": 880
+              },
+              {
+                "index": 5,
+                "text": "",
+                "line": 881
+              },
+              {
+                "index": 6,
+                "text": "Shows how much water the current",
+                "line": 882
+              },
+              {
+                "index": 7,
+                "text": "crop has, ranging between -100",
+                "line": 883
+              },
+              {
+                "index": 8,
+                "text": "(dead) and 100 (fully watered).",
+                "line": 884
+              }
+            ]
+          }
+        },
+        {
+          "slot": 22,
+          "name": "Applies Effects",
+          "lore": [
+            "",
+            "\u27a4 Harvest Boost",
+            "Increases Yield by +20%",
+            "",
+            "Shows what effects this crop applies",
+            "to adjacent crops."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:27.614Z",
+            "title": "Crop Diagnostics",
+            "slot": 22,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 978
+              },
+              {
+                "index": 1,
+                "text": "\u27a4 Harvest Boost",
+                "line": 979
+              },
+              {
+                "index": 2,
+                "text": "Increases Yield by +20%",
+                "line": 980
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 981
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects this crop applies",
+                "line": 982
+              },
+              {
+                "index": 5,
+                "text": "to adjacent crops.",
+                "line": 983
+              }
+            ]
+          }
+        },
+        {
+          "slot": 23,
+          "name": "Has Effects",
+          "lore": [
+            "",
+            "\u27a4 Harvest Boost",
+            "Increases Yield by +20%",
+            "",
+            "Shows what effects adjacent crops",
+            "apply to this crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:27.614Z",
+            "title": "Crop Diagnostics",
+            "slot": 23,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 1091
+              },
+              {
+                "index": 1,
+                "text": "\u27a4 Harvest Boost",
+                "line": 1092
+              },
+              {
+                "index": 2,
+                "text": "Increases Yield by +20%",
+                "line": 1093
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 1094
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects adjacent crops",
+                "line": 1095
+              },
+              {
+                "index": 5,
+                "text": "apply to this crop.",
+                "line": 1096
+              }
+            ]
+          }
+        },
+        {
+          "slot": 24,
+          "name": "Growth Status",
+          "lore": [
+            "Status: Growing",
+            "",
+            "Shows the current growth status of",
+            "the crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:27.614Z",
+            "title": "Crop Diagnostics",
+            "slot": 24,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Status: Growing",
+                "line": 1183
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 1184
+              },
+              {
+                "index": 2,
+                "text": "Shows the current growth status of",
+                "line": 1185
+              },
+              {
+                "index": 3,
+                "text": "the crop.",
+                "line": 1186
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "observedAtUtc": "2026-10-01T02:55:37.523Z",
+      "targetPosition": null,
+      "bindingStatus": "unbound_menu_observation",
+      "slots": [
+        {
+          "slot": 4,
+          "name": "Wheat",
+          "lore": [
+            "Base Crop",
+            "",
+            "Size: 1x1",
+            "Growth Surface: Farmland",
+            "Growth Stages: 8"
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:37.523Z",
+            "title": "Crop Diagnostics",
+            "slot": 4,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Base Crop",
+                "line": 153
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 154
+              },
+              {
+                "index": 2,
+                "text": "Size: 1x1",
+                "line": 155
+              },
+              {
+                "index": 3,
+                "text": "Growth Surface: Farmland",
+                "line": 156
+              },
+              {
+                "index": 4,
+                "text": "Growth Stages: 8",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "slot": 20,
+          "name": "Growth Stage",
+          "lore": [
+            "Age: 31s",
+            "Stage: 1/8",
+            "Next Stage: 1h 14m 55s",
+            "Decay: 2d 23h 59m 28s",
+            "",
+            "Shows how much the crop has grown."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:37.523Z",
+            "title": "Crop Diagnostics",
+            "slot": 20,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Age: 31s",
+                "line": 763
+              },
+              {
+                "index": 1,
+                "text": "Stage: 1/8",
+                "line": 764
+              },
+              {
+                "index": 2,
+                "text": "Next Stage: 1h 14m 55s",
+                "line": 765
+              },
+              {
+                "index": 3,
+                "text": "Decay: 2d 23h 59m 28s",
+                "line": 766
+              },
+              {
+                "index": 4,
+                "text": "",
+                "line": 767
+              },
+              {
+                "index": 5,
+                "text": "Shows how much the crop has grown.",
+                "line": 768
+              }
+            ]
+          }
+        },
+        {
+          "slot": 21,
+          "name": "Water Level",
+          "lore": [
+            "Water: 100/100",
+            "Lasts for: 1d 7h 14m 55s",
+            "",
+            "This crop has enough water to",
+            "reach full growth!",
+            "",
+            "Shows how much water the current",
+            "crop has, ranging between -100",
+            "(dead) and 100 (fully watered)."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:37.523Z",
+            "title": "Crop Diagnostics",
+            "slot": 21,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Water: 100/100",
+                "line": 876
+              },
+              {
+                "index": 1,
+                "text": "Lasts for: 1d 7h 14m 55s",
+                "line": 877
+              },
+              {
+                "index": 2,
+                "text": "",
+                "line": 878
+              },
+              {
+                "index": 3,
+                "text": "This crop has enough water to",
+                "line": 879
+              },
+              {
+                "index": 4,
+                "text": "reach full growth!",
+                "line": 880
+              },
+              {
+                "index": 5,
+                "text": "",
+                "line": 881
+              },
+              {
+                "index": 6,
+                "text": "Shows how much water the current",
+                "line": 882
+              },
+              {
+                "index": 7,
+                "text": "crop has, ranging between -100",
+                "line": 883
+              },
+              {
+                "index": 8,
+                "text": "(dead) and 100 (fully watered).",
+                "line": 884
+              }
+            ]
+          }
+        },
+        {
+          "slot": 22,
+          "name": "Applies Effects",
+          "lore": [
+            "",
+            "\u27a4 Harvest Boost",
+            "Increases Yield by +20%",
+            "",
+            "Shows what effects this crop applies",
+            "to adjacent crops."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:37.523Z",
+            "title": "Crop Diagnostics",
+            "slot": 22,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 978
+              },
+              {
+                "index": 1,
+                "text": "\u27a4 Harvest Boost",
+                "line": 979
+              },
+              {
+                "index": 2,
+                "text": "Increases Yield by +20%",
+                "line": 980
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 981
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects this crop applies",
+                "line": 982
+              },
+              {
+                "index": 5,
+                "text": "to adjacent crops.",
+                "line": 983
+              }
+            ]
+          }
+        },
+        {
+          "slot": 23,
+          "name": "Has Effects",
+          "lore": [
+            "",
+            "\u27a4 Harvest Boost",
+            "Increases Yield by +20%",
+            "",
+            "Shows what effects adjacent crops",
+            "apply to this crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:37.523Z",
+            "title": "Crop Diagnostics",
+            "slot": 23,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 1091
+              },
+              {
+                "index": 1,
+                "text": "\u27a4 Harvest Boost",
+                "line": 1092
+              },
+              {
+                "index": 2,
+                "text": "Increases Yield by +20%",
+                "line": 1093
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 1094
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects adjacent crops",
+                "line": 1095
+              },
+              {
+                "index": 5,
+                "text": "apply to this crop.",
+                "line": 1096
+              }
+            ]
+          }
+        },
+        {
+          "slot": 24,
+          "name": "Growth Status",
+          "lore": [
+            "Status: Growing",
+            "",
+            "Shows the current growth status of",
+            "the crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:37.523Z",
+            "title": "Crop Diagnostics",
+            "slot": 24,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Status: Growing",
+                "line": 1183
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 1184
+              },
+              {
+                "index": 2,
+                "text": "Shows the current growth status of",
+                "line": 1185
+              },
+              {
+                "index": 3,
+                "text": "the crop.",
+                "line": 1186
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "observedAtUtc": "2026-10-01T02:55:39.615Z",
+      "targetPosition": null,
+      "bindingStatus": "unbound_menu_observation",
+      "slots": [
+        {
+          "slot": 4,
+          "name": "Wheat",
+          "lore": [
+            "Base Crop",
+            "",
+            "Size: 1x1",
+            "Growth Surface: Farmland",
+            "Growth Stages: 8"
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:39.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 4,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Base Crop",
+                "line": 153
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 154
+              },
+              {
+                "index": 2,
+                "text": "Size: 1x1",
+                "line": 155
+              },
+              {
+                "index": 3,
+                "text": "Growth Surface: Farmland",
+                "line": 156
+              },
+              {
+                "index": 4,
+                "text": "Growth Stages: 8",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "slot": 20,
+          "name": "Growth Stage",
+          "lore": [
+            "Age: 33s",
+            "Stage: 1/8",
+            "Next Stage: 1h 14m 53s",
+            "Decay: 2d 23h 59m 26s",
+            "",
+            "Shows how much the crop has grown."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:39.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 20,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Age: 33s",
+                "line": 763
+              },
+              {
+                "index": 1,
+                "text": "Stage: 1/8",
+                "line": 764
+              },
+              {
+                "index": 2,
+                "text": "Next Stage: 1h 14m 53s",
+                "line": 765
+              },
+              {
+                "index": 3,
+                "text": "Decay: 2d 23h 59m 26s",
+                "line": 766
+              },
+              {
+                "index": 4,
+                "text": "",
+                "line": 767
+              },
+              {
+                "index": 5,
+                "text": "Shows how much the crop has grown.",
+                "line": 768
+              }
+            ]
+          }
+        },
+        {
+          "slot": 21,
+          "name": "Water Level",
+          "lore": [
+            "Water: 35/100",
+            "Lasts for: 21h 14m 53s",
+            "",
+            "Shows how much water the current",
+            "crop has, ranging between -100",
+            "(dead) and 100 (fully watered)."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:39.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 21,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Water: 35/100",
+                "line": 876
+              },
+              {
+                "index": 1,
+                "text": "Lasts for: 21h 14m 53s",
+                "line": 877
+              },
+              {
+                "index": 2,
+                "text": "",
+                "line": 878
+              },
+              {
+                "index": 3,
+                "text": "Shows how much water the current",
+                "line": 879
+              },
+              {
+                "index": 4,
+                "text": "crop has, ranging between -100",
+                "line": 880
+              },
+              {
+                "index": 5,
+                "text": "(dead) and 100 (fully watered).",
+                "line": 881
+              }
+            ]
+          }
+        },
+        {
+          "slot": 22,
+          "name": "Applies Effects",
+          "lore": [
+            "",
+            "\u27a4 Harvest Boost",
+            "Increases Yield by +20%",
+            "",
+            "Shows what effects this crop applies",
+            "to adjacent crops."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:39.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 22,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 964
+              },
+              {
+                "index": 1,
+                "text": "\u27a4 Harvest Boost",
+                "line": 965
+              },
+              {
+                "index": 2,
+                "text": "Increases Yield by +20%",
+                "line": 966
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 967
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects this crop applies",
+                "line": 968
+              },
+              {
+                "index": 5,
+                "text": "to adjacent crops.",
+                "line": 969
+              }
+            ]
+          }
+        },
+        {
+          "slot": 23,
+          "name": "Has Effects",
+          "lore": [
+            "",
+            "\u27a4 Harvest Boost",
+            "Increases Yield by +20%",
+            "",
+            "Shows what effects adjacent crops",
+            "apply to this crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:39.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 23,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 1077
+              },
+              {
+                "index": 1,
+                "text": "\u27a4 Harvest Boost",
+                "line": 1078
+              },
+              {
+                "index": 2,
+                "text": "Increases Yield by +20%",
+                "line": 1079
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 1080
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects adjacent crops",
+                "line": 1081
+              },
+              {
+                "index": 5,
+                "text": "apply to this crop.",
+                "line": 1082
+              }
+            ]
+          }
+        },
+        {
+          "slot": 24,
+          "name": "Growth Status",
+          "lore": [
+            "Status: Growing",
+            "",
+            "Shows the current growth status of",
+            "the crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:39.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 24,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Status: Growing",
+                "line": 1169
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 1170
+              },
+              {
+                "index": 2,
+                "text": "Shows the current growth status of",
+                "line": 1171
+              },
+              {
+                "index": 3,
+                "text": "the crop.",
+                "line": 1172
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "observedAtUtc": "2026-10-01T02:55:43.615Z",
+      "targetPosition": null,
+      "bindingStatus": "unbound_menu_observation",
+      "slots": [
+        {
+          "slot": 4,
+          "name": "Wheat",
+          "lore": [
+            "Base Crop",
+            "",
+            "Size: 1x1",
+            "Growth Surface: Farmland",
+            "Growth Stages: 8"
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:43.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 4,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Base Crop",
+                "line": 153
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 154
+              },
+              {
+                "index": 2,
+                "text": "Size: 1x1",
+                "line": 155
+              },
+              {
+                "index": 3,
+                "text": "Growth Surface: Farmland",
+                "line": 156
+              },
+              {
+                "index": 4,
+                "text": "Growth Stages: 8",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "slot": 20,
+          "name": "Growth Stage",
+          "lore": [
+            "Age: 37s",
+            "Stage: 1/8",
+            "Next Stage: 1h 14m 49s",
+            "Decay: 2d 23h 59m 22s",
+            "",
+            "Shows how much the crop has grown."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:43.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 20,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Age: 37s",
+                "line": 763
+              },
+              {
+                "index": 1,
+                "text": "Stage: 1/8",
+                "line": 764
+              },
+              {
+                "index": 2,
+                "text": "Next Stage: 1h 14m 49s",
+                "line": 765
+              },
+              {
+                "index": 3,
+                "text": "Decay: 2d 23h 59m 22s",
+                "line": 766
+              },
+              {
+                "index": 4,
+                "text": "",
+                "line": 767
+              },
+              {
+                "index": 5,
+                "text": "Shows how much the crop has grown.",
+                "line": 768
+              }
+            ]
+          }
+        },
+        {
+          "slot": 21,
+          "name": "Water Level",
+          "lore": [
+            "Water: 35/100",
+            "Lasts for: 21h 14m 49s",
+            "",
+            "Shows how much water the current",
+            "crop has, ranging between -100",
+            "(dead) and 100 (fully watered)."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:43.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 21,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Water: 35/100",
+                "line": 876
+              },
+              {
+                "index": 1,
+                "text": "Lasts for: 21h 14m 49s",
+                "line": 877
+              },
+              {
+                "index": 2,
+                "text": "",
+                "line": 878
+              },
+              {
+                "index": 3,
+                "text": "Shows how much water the current",
+                "line": 879
+              },
+              {
+                "index": 4,
+                "text": "crop has, ranging between -100",
+                "line": 880
+              },
+              {
+                "index": 5,
+                "text": "(dead) and 100 (fully watered).",
+                "line": 881
+              }
+            ]
+          }
+        },
+        {
+          "slot": 22,
+          "name": "Applies Effects",
+          "lore": [
+            "",
+            "\u27a4 Harvest Boost",
+            "Increases Yield by +20%",
+            "",
+            "Shows what effects this crop applies",
+            "to adjacent crops."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:43.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 22,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 964
+              },
+              {
+                "index": 1,
+                "text": "\u27a4 Harvest Boost",
+                "line": 965
+              },
+              {
+                "index": 2,
+                "text": "Increases Yield by +20%",
+                "line": 966
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 967
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects this crop applies",
+                "line": 968
+              },
+              {
+                "index": 5,
+                "text": "to adjacent crops.",
+                "line": 969
+              }
+            ]
+          }
+        },
+        {
+          "slot": 23,
+          "name": "Has Effects",
+          "lore": [
+            "",
+            "\u27a4 Harvest Boost",
+            "Increases Yield by +20%",
+            "",
+            "Shows what effects adjacent crops",
+            "apply to this crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:43.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 23,
+            "lore": [
+              {
+                "index": 0,
+                "text": "",
+                "line": 1077
+              },
+              {
+                "index": 1,
+                "text": "\u27a4 Harvest Boost",
+                "line": 1078
+              },
+              {
+                "index": 2,
+                "text": "Increases Yield by +20%",
+                "line": 1079
+              },
+              {
+                "index": 3,
+                "text": "",
+                "line": 1080
+              },
+              {
+                "index": 4,
+                "text": "Shows what effects adjacent crops",
+                "line": 1081
+              },
+              {
+                "index": 5,
+                "text": "apply to this crop.",
+                "line": 1082
+              }
+            ]
+          }
+        },
+        {
+          "slot": 24,
+          "name": "Growth Status",
+          "lore": [
+            "Status: Growing",
+            "",
+            "Shows the current growth status of",
+            "the crop."
+          ],
+          "evidence": {
+            "observedAtUtc": "2026-10-01T02:55:43.615Z",
+            "title": "Crop Diagnostics",
+            "slot": 24,
+            "lore": [
+              {
+                "index": 0,
+                "text": "Status: Growing",
+                "line": 1169
+              },
+              {
+                "index": 1,
+                "text": "",
+                "line": 1170
+              },
+              {
+                "index": 2,
+                "text": "Shows the current growth status of",
+                "line": 1171
+              },
+              {
+                "index": 3,
+                "text": "the crop.",
+                "line": 1172
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "carpenter": [
+    {
+      "slot": 20,
+      "name": "Crop Guide",
+      "lore": [
+        "In the Greenhouse, every crop has",
+        "unique effects that affect adjacent",
+        "crops with buffs or debuffs.",
+        "A crop can have multiple different",
+        "effects; however, the same effect",
+        "can't be active twice!",
+        "",
+        "Unique Bonus:",
+        "Each unique non-mutated crop",
+        "currently growing in the Greenhouse",
+        "grants +2.5% Growth Speed and +3%",
+        "Yield to all crops.",
+        "",
+        "Click to learn more about them!"
+      ],
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:28.067Z",
+        "title": "Carpenter",
+        "slot": 20,
+        "lore": [
+          {
+            "index": 0,
+            "text": "In the Greenhouse, every crop has",
+            "line": 681
+          },
+          {
+            "index": 1,
+            "text": "unique effects that affect adjacent",
+            "line": 682
+          },
+          {
+            "index": 2,
+            "text": "crops with buffs or debuffs.",
+            "line": 683
+          },
+          {
+            "index": 3,
+            "text": "A crop can have multiple different",
+            "line": 684
+          },
+          {
+            "index": 4,
+            "text": "effects; however, the same effect",
+            "line": 685
+          },
+          {
+            "index": 5,
+            "text": "can't be active twice!",
+            "line": 686
+          },
+          {
+            "index": 6,
+            "text": "",
+            "line": 687
+          },
+          {
+            "index": 7,
+            "text": "Unique Bonus:",
+            "line": 688
+          },
+          {
+            "index": 8,
+            "text": "Each unique non-mutated crop",
+            "line": 689
+          },
+          {
+            "index": 9,
+            "text": "currently growing in the Greenhouse",
+            "line": 690
+          },
+          {
+            "index": 10,
+            "text": "grants +2.5% Growth Speed and +3%",
+            "line": 691
+          },
+          {
+            "index": 11,
+            "text": "Yield to all crops.",
+            "line": 692
+          },
+          {
+            "index": 12,
+            "text": "",
+            "line": 693
+          },
+          {
+            "index": 13,
+            "text": "Click to learn more about them!",
+            "line": 694
+          }
+        ]
+      }
+    },
+    {
+      "slot": 22,
+      "name": "All Mutations",
+      "lore": [
+        "",
+        "Mutations have a chance to spread",
+        "from growing crops to nearby empty",
+        "plots within the Greenhouse.",
+        "Each mutation requires a specific",
+        "combination of crops to spread.",
+        "",
+        "For detailed requirements and",
+        "spread conditions, check out your",
+        "unlocked mutations!",
+        "",
+        "Total Analyzed: 0/40",
+        "",
+        "Click to view!"
+      ],
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:28.067Z",
+        "title": "Carpenter",
+        "slot": 22,
+        "lore": [
+          {
+            "index": 0,
+            "text": "",
+            "line": 930
+          },
+          {
+            "index": 1,
+            "text": "Mutations have a chance to spread",
+            "line": 931
+          },
+          {
+            "index": 2,
+            "text": "from growing crops to nearby empty",
+            "line": 932
+          },
+          {
+            "index": 3,
+            "text": "plots within the Greenhouse.",
+            "line": 933
+          },
+          {
+            "index": 4,
+            "text": "Each mutation requires a specific",
+            "line": 934
+          },
+          {
+            "index": 5,
+            "text": "combination of crops to spread.",
+            "line": 935
+          },
+          {
+            "index": 6,
+            "text": "",
+            "line": 936
+          },
+          {
+            "index": 7,
+            "text": "For detailed requirements and",
+            "line": 937
+          },
+          {
+            "index": 8,
+            "text": "spread conditions, check out your",
+            "line": 938
+          },
+          {
+            "index": 9,
+            "text": "unlocked mutations!",
+            "line": 939
+          },
+          {
+            "index": 10,
+            "text": "",
+            "line": 940
+          },
+          {
+            "index": 11,
+            "text": "Total Analyzed: 0/40",
+            "line": 941
+          },
+          {
+            "index": 12,
+            "text": "",
+            "line": 942
+          },
+          {
+            "index": 13,
+            "text": "Click to view!",
+            "line": 943
+          }
+        ]
+      }
+    },
+    {
+      "slot": 24,
+      "name": "Unlocking Plant Slots",
+      "lore": [
+        "Sometimes when you break a crop or",
+        "mutation, it has a chance to drop an",
+        "Ethereal Vine, which can be used to",
+        "unlock additional plant slots in your",
+        "Greenhouse.",
+        "",
+        "Your Slots:",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588"
+      ],
+      "evidence": {
+        "observedAtUtc": "2026-10-01T02:52:28.067Z",
+        "title": "Carpenter",
+        "slot": 24,
+        "lore": [
+          {
+            "index": 0,
+            "text": "Sometimes when you break a crop or",
+            "line": 1165
+          },
+          {
+            "index": 1,
+            "text": "mutation, it has a chance to drop an",
+            "line": 1166
+          },
+          {
+            "index": 2,
+            "text": "Ethereal Vine, which can be used to",
+            "line": 1167
+          },
+          {
+            "index": 3,
+            "text": "unlock additional plant slots in your",
+            "line": 1168
+          },
+          {
+            "index": 4,
+            "text": "Greenhouse.",
+            "line": 1169
+          },
+          {
+            "index": 5,
+            "text": "",
+            "line": 1170
+          },
+          {
+            "index": 6,
+            "text": "Your Slots:",
+            "line": 1171
+          },
+          {
+            "index": 7,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1172
+          },
+          {
+            "index": 8,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1173
+          },
+          {
+            "index": 9,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1174
+          },
+          {
+            "index": 10,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1175
+          },
+          {
+            "index": 11,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1176
+          },
+          {
+            "index": 12,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1177
+          },
+          {
+            "index": 13,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1178
+          },
+          {
+            "index": 14,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1179
+          },
+          {
+            "index": 15,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1180
+          },
+          {
+            "index": 16,
+            "text": " \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+            "line": 1181
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+package dev.veltraph.client.scheduling;
+import java.util.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class ScheduledResumeHandoffTest {
+    @Test void acceptedEnginePrecedesMovementAndCanceledInteractionsAreNotReplayed(){var events=new ArrayList<String>();var handoff=new ScheduledResumeHandoff();assertTrue(handoff.complete(()->{events.add("resume");return true;},()->events.add("movement"),()->events.add("clear-interactions"),()->events.add("stop")));assertEquals(List.of("clear-interactions","resume","movement","clear-interactions"),events);assertEquals(ScheduledResumeHandoff.State.RESUMED,handoff.state());assertFalse(handoff.complete(()->true,()->fail("Duplicate movement replay"),()->fail("Duplicate interaction mutation"),()->fail("Duplicate stop")));}
+    @Test void rejectedResumeStopsWithoutAnyMovementReplay(){var events=new ArrayList<String>();var handoff=new ScheduledResumeHandoff();assertFalse(handoff.complete(()->{events.add("reject");return false;},()->fail("Failed resume replayed movement"),()->events.add("clear-interactions"),()->events.add("stop")));assertEquals(List.of("clear-interactions","reject","stop","clear-interactions"),events);assertEquals(ScheduledResumeHandoff.State.FAILED,handoff.state());}
+    @Test void throwingResumeAndMovementFailureBothEndCleared(){for(boolean resumeThrows:List.of(true,false)){var events=new ArrayList<String>();var handoff=new ScheduledResumeHandoff();assertFalse(handoff.complete(()->{if(resumeThrows)throw new IllegalStateException("lost owner");return true;},()->{throw new IllegalStateException("movement adapter failed");},()->events.add("clear"),()->events.add("stop")));assertEquals(List.of("clear","stop","clear"),events);assertEquals(ScheduledResumeHandoff.State.FAILED,handoff.state());}}
+}

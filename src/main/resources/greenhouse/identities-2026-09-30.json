@@ -1,0 +1,322 @@
+{
+  "source": "https://api.hypixel.net/v2/resources/skyblock/items",
+  "capturedAt": "2026-10-01T00:24:30+00:00",
+  "lastUpdated": 1789686143064,
+  "entries": [
+    {
+      "id": "ALL_IN_ALOE",
+      "name": "All-in Aloe",
+      "tier": "LEGENDARY",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "ASHWREATH",
+      "name": "Ashwreath",
+      "tier": "COMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "BLASTBERRY",
+      "name": "Blastberry",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "CHEESEBITE",
+      "name": "Cheesebite",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "CHLORONITE",
+      "name": "Chloronite",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "CHOCOBERRY",
+      "name": "Chocoberry",
+      "tier": "UNCOMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "CHOCONUT",
+      "name": "Choconut",
+      "tier": "COMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "CHORUS_FRUIT",
+      "name": "Chorus Fruit",
+      "tier": "EPIC",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "CINDERSHADE",
+      "name": "Cindershade",
+      "tier": "UNCOMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "COALROOT",
+      "name": "Coalroot",
+      "tier": "UNCOMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "CREAMBLOOM",
+      "name": "Creambloom",
+      "tier": "UNCOMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "DEVOURER",
+      "name": "Devourer",
+      "tier": "LEGENDARY",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "DO_NOT_EAT_SHROOM",
+      "name": "Do-not-eat-shroom",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "DUSKBLOOM",
+      "name": "Duskbloom",
+      "tier": "UNCOMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "DUSTGRAIN",
+      "name": "Dustgrain",
+      "tier": "COMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "FILLED_ROSEWATER_FLASK",
+      "name": "Filled Rosewater Flask",
+      "tier": "LEGENDARY",
+      "itemModel": "hypixel_skyblock:item/island_relevant/garden/greenhouse/wild_rose/filled_rosewater_flask",
+      "category": null
+    },
+    {
+      "id": "FLESHTRAP",
+      "name": "Fleshtrap",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "GLASSCORN",
+      "name": "Glasscorn",
+      "tier": "LEGENDARY",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "GLOOMGOURD",
+      "name": "Gloomgourd",
+      "tier": "COMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "GODSEED",
+      "name": "Godseed",
+      "tier": "LEGENDARY",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "GREENHOUSE",
+      "name": "Greenhouse Planter",
+      "tier": "EPIC",
+      "itemModel": null,
+      "category": null
+    },
+    {
+      "id": "GREENHOUSE_BLUEPRINT",
+      "name": "Greenhouse Blueprint",
+      "tier": "RARE",
+      "itemModel": "hypixel_skyblock:item/island_relevant/garden/greenhouse/greenhouse_blueprint",
+      "category": null
+    },
+    {
+      "id": "JERRYFLOWER",
+      "name": "Jerryflower",
+      "tier": "LEGENDARY",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "LONELILY",
+      "name": "Lonelily",
+      "tier": "COMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "MAGIC_JELLYBEAN",
+      "name": "Magic Jellybean",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "NOCTILUME",
+      "name": "Noctilume",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "PHANTOMLEAF",
+      "name": "Phantomleaf",
+      "tier": "LEGENDARY",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "PLANTBOY_ADVANCE",
+      "name": "PlantBoy Advance",
+      "tier": "EPIC",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "PLANT_DIAGNOSTICS_TOOL",
+      "name": "Plant Diagnostics Tool",
+      "tier": "RARE",
+      "itemModel": "hypixel_skyblock:item/island_relevant/garden/greenhouse/plant_diagnostics_tool",
+      "category": null
+    },
+    {
+      "id": "PUFFERCLOUD",
+      "name": "Puffercloud",
+      "tier": "EPIC",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "ROSEWATER_FLASK",
+      "name": "Rosewater Flask",
+      "tier": "RARE",
+      "itemModel": "hypixel_skyblock:item/island_relevant/garden/greenhouse/wild_rose/rosewater_flask",
+      "category": null
+    },
+    {
+      "id": "SCOURROOT",
+      "name": "Scourroot",
+      "tier": "COMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "SHADEVINE",
+      "name": "Shadevine",
+      "tier": "COMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "SHELLFRUIT",
+      "name": "Shellfruit",
+      "tier": "EPIC",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "SNOOZLING",
+      "name": "Snoozling",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "SOGGYBUD",
+      "name": "Soggybud",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "STARTLEVINE",
+      "name": "Startlevine",
+      "tier": "EPIC",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "STOPLIGHT_PETAL",
+      "name": "Stoplight Petal",
+      "tier": "EPIC",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "THORNSHADE",
+      "name": "Thornshade",
+      "tier": "UNCOMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "THUNDERLING",
+      "name": "Thunderling",
+      "tier": "EPIC",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "TIMESTALK",
+      "name": "Timestalk",
+      "tier": "LEGENDARY",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "TURTLELLINI",
+      "name": "Turtlellini",
+      "tier": "RARE",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "VEILSHROOM",
+      "name": "Veilshroom",
+      "tier": "COMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "WITHERBLOOM",
+      "name": "Witherbloom",
+      "tier": "COMMON",
+      "itemModel": null,
+      "category": "MUTATION"
+    },
+    {
+      "id": "ZOMBUD",
+      "name": "Zombud",
+      "tier": "EPIC",
+      "itemModel": null,
+      "category": "MUTATION"
+    }
+  ]
+}

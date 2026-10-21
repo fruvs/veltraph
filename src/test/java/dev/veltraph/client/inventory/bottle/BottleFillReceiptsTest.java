@@ -1,0 +1,15 @@
+package dev.veltraph.client.inventory.bottle;
+import org.junit.jupiter.api.Test;
+import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static dev.veltraph.client.inventory.bottle.BottleFillReceipts.*;
+class BottleFillReceiptsTest {
+    final BottleFillReceipts journal=new BottleFillReceipts();final Scope scope=new Scope(new Object(),new Object(),new Object(),new Object(),new Object(),1);
+    final Cell glass=new Cell(new BottleFillWorkflow.Stack(BottleFillWorkflowTest.GLASS,63,false),"canonical-glass63"),water=new Cell(new BottleFillWorkflow.Stack(BottleFillWorkflowTest.WATER,1,false),"canonical-water1"),empty=new Cell(BottleFillWorkflow.Stack.EMPTY,"canonical-empty");
+    @Test void fillRequiresBothActualChangedSlotsAfterDispatch(){long before=journal.sequence();assertFalse(journal.confirms(scope,before,Map.of(0,glass,6,water),Map.of(),-1));journal.applied(scope,Kind.PLAYER_SLOT,-1,Map.of(0,glass),Map.of());assertFalse(journal.confirms(scope,before,Map.of(0,glass,6,water),Map.of(),-1));journal.applied(scope,Kind.PLAYER_SLOT,-1,Map.of(6,water),Map.of());assertTrue(journal.confirms(scope,before,Map.of(0,glass,6,water),Map.of(),-1));}
+    @Test void storeRequiresExactIssuedOutputNotUnrelatedEmptySlot(){long before=journal.sequence();journal.applied(scope,Kind.CONTAINER_SLOT,4,Map.of(7,empty),Map.of(0,water));assertFalse(journal.confirms(scope,before,Map.of(6,empty),Map.of(0,water),4));journal.applied(scope,Kind.PLAYER_SLOT,-1,Map.of(6,empty),Map.of());assertTrue(journal.confirms(scope,before,Map.of(6,empty),Map.of(0,water),4));}
+    @Test void oneHalfOfStoreOrOldRevisionNeverAcknowledges(){long before=journal.sequence();journal.applied(scope,Kind.PLAYER_SLOT,-1,Map.of(6,empty),Map.of());assertFalse(journal.confirms(scope,before,Map.of(6,empty),Map.of(0,water),4));journal.applied(scope,Kind.CONTAINER_SLOT,3,Map.of(),Map.of(0,water));assertFalse(journal.confirms(scope,before,Map.of(6,empty),Map.of(0,water),4));}
+    @Test void sameDescribedStackWithWrongCanonicalComponentsRejects(){journal.applied(scope,Kind.PLAYER_SLOT,-1,Map.of(6,new Cell(water.stack(),"different-canonical-components")),Map.of());assertFalse(journal.confirms(scope,0,Map.of(6,water),Map.of(),-1));}
+    @Test void contextOrManualScreenChangeClearsPriorReceipts(){journal.applied(scope,Kind.PLAYER_SLOT,-1,Map.of(6,water),Map.of());var different=new Scope(scope.player(),scope.world(),scope.connection(),scope.menu(),new Object(),1);journal.applied(different,Kind.PLAYER_SLOT,-1,Map.of(0,glass),Map.of());assertFalse(journal.confirms(scope,0,Map.of(6,water),Map.of(),-1));assertFalse(journal.confirms(different,0,Map.of(0,glass,6,water),Map.of(),-1));}
+    @Test void oldWindowAndSupersedingCorrectionCannotCredit(){journal.applied(scope,Kind.PLAYER_SLOT,-1,Map.of(6,water),Map.of());long next=journal.sequence();assertFalse(journal.confirms(scope,next,Map.of(6,water),Map.of(),-1));journal.applied(scope,Kind.PLAYER_SLOT,-1,Map.of(6,empty),Map.of());assertFalse(journal.confirms(scope,0,Map.of(6,water),Map.of(),-1));}
+}

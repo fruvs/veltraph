@@ -1,0 +1,18 @@
+package dev.veltraph.client.navigation;
+
+import dev.veltraph.client.world.Vec3;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+final class WaterTravelTerminalRadiusTest {
+    private final Vec3 goal=new Vec3(.5,70,.5);
+    private final WaterTravelController.Geometry supportedWater=new WaterTravelController.Geometry(){public boolean connection(Vec3 a,Vec3 b){return true;}public boolean ground(Vec3 p){return true;}public boolean water(Vec3 p){return true;}};
+    private WaterTravelController.Input input(double z,long now){return new WaterTravelController.Input(new Vec3(.5,70,z),new Vec3(0,-.005,0),0,true,true,false,300,300,20,true,false,true,now);}
+    @Test void explicitFishingRadiusCannotInventArrivalOutsideSavedPosition(){var legacy=new WaterTravelController();legacy.start(List.of(goal),20,0);assertEquals(WaterTravelController.State.ARRIVED,legacy.tick(input(.25,10),supportedWater,6000,1).state());var strict=new WaterTravelController();strict.start(List.of(goal),20,0,.18);var seeking=strict.tick(input(.25,10),supportedWater,6000,1);assertTrue(seeking.forward(),"Strict caller must request native movement toward saved position");assertEquals(WaterTravelController.State.TRAVELLING,seeking.state(),"Caller requires actual3Ddist<.18; legacy .25 arrival cannot satisfy Fishing saved-position receipt");}
+    @Test void stricterObserved3dArrivalRetainsMotionAndLavaGuards(){var c=new WaterTravelController();c.start(List.of(goal),20,0,.18);assertEquals(WaterTravelController.State.TRAVELLING,c.tick(input(.25,10),supportedWater,6000,1).state());assertEquals(WaterTravelController.State.ARRIVED,c.tick(input(.35,20),supportedWater,6000,1).state());c.start(List.of(goal),20,0,.18);var moving=new WaterTravelController.Input(goal,new Vec3(0,-.005,.03),0,true,true,false,300,300,20,true,false,true,20);assertEquals(WaterTravelController.State.TRAVELLING,c.tick(moving,supportedWater,6000,1).state());c.start(List.of(goal),20,0,.18);var lava=new WaterTravelController.Input(goal,new Vec3(0,-.005,0),0,true,true,false,300,300,20,true,true,true,20);assertEquals(WaterTravelController.State.BLOCKED,c.tick(lava,supportedWater,6000,1).state());}
+    @Test void actual3dDistanceCannotHideBehindHorizontalRadius(){var c=new WaterTravelController();c.start(List.of(goal),20,0,.18);var offPlane=new WaterTravelController.Input(new Vec3(.5,70.11,.33),new Vec3(0,-.005,0),0,true,true,false,300,300,20,true,false,true,20);assertEquals(WaterTravelController.State.TRAVELLING,c.tick(offPlane,supportedWater,6000,1).state());}
+    @Test void radiusSurvivesAirDetourAndResume(){var c=new WaterTravelController();c.start(List.of(goal),20,0,.18);c.surface(List.of(new Vec3(.5,71,.5)),10);c.resume(List.of(goal),20);assertEquals(WaterTravelController.State.TRAVELLING,c.tick(input(.25,30),supportedWater,6000,1).state());assertEquals(WaterTravelController.State.ARRIVED,c.tick(input(.35,40),supportedWater,6000,1).state());}
+    @Test void broaderOrUnknownRadiusIsRejected(){for(double radius:new double[]{Double.NaN,Double.POSITIVE_INFINITY,0,.049,.301,1})assertThrows(IllegalArgumentException.class,()->new WaterTravelController().start(List.of(goal),20,0,radius));}
+    @Test void legacySignatureStillUsesItsOriginal3dDistanceAndHorizontalBounds(){var c=new WaterTravelController();c.start(List.of(goal),20,0);assertEquals(WaterTravelController.State.ARRIVED,c.tick(input(.25,20),supportedWater,6000,1).state());c.start(List.of(goal),20,0);assertEquals(WaterTravelController.State.TRAVELLING,c.tick(input(.2,20),supportedWater,6000,1).state());}
+}

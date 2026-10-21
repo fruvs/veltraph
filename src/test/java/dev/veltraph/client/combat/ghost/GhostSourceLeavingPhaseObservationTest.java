@@ -1,0 +1,8 @@
+package dev.veltraph.client.combat.ghost;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class GhostSourceLeavingPhaseObservationTest {
+    @Test void remainingBudgetCannotIncreaseParentAllocation(){assertEquals(0,GhostSourceLeavingPhaseObservation.boundedBudget(-1));assertEquals(0,GhostSourceLeavingPhaseObservation.boundedBudget(0));assertEquals(1,GhostSourceLeavingPhaseObservation.boundedBudget(1));assertEquals(123,GhostSourceLeavingPhaseObservation.boundedBudget(123));assertEquals(4_000_000,GhostSourceLeavingPhaseObservation.boundedBudget(Long.MAX_VALUE));}
+    @Test void realPhaseTicksCannotBeResetOrMadeReadyBeforeCapture(){var p=new GhostSourceLeavingPhaseObservation();assertEquals(-1,p.snapshot().readyTick());assertThrows(IllegalStateException.class,()->p.ready(10));p.capturing(100);assertThrows(IllegalStateException.class,()->p.capturing(101));assertThrows(IllegalStateException.class,()->p.ready(99));p.ready(104);assertEquals(new GhostSourceLeavingPhaseObservation.Snapshot(100,104),p.snapshot());assertThrows(IllegalStateException.class,()->p.ready(105));}
+    @Test void earlyConcurrentPathCompletionDoesNotResampleDelayedSlot(){var l=new GhostSourceLeavingLifecycle();l.begin(java.util.List.of(new GhostSourceWalkFrontier.Cell(1,2,3)),n->0);int[] draws={0};l.captured(true,GhostSourceLeavingLifecycle.Policy.ETHERWARP_OUT,true,100,n->{draws[0]++;return 0;});for(int i=0;i<3;i++)l.event(false,true,true,true,1,n->{fail("active path does not resample");return 0;},()->{fail();return 0;},()->{fail();return false;});l.pathSucceeded();assertEquals(2,draws[0]);assertTrue(l.toolDue(105));}
+}

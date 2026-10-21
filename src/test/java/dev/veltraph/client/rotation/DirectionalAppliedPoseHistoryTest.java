@@ -1,0 +1,16 @@
+package dev.veltraph.client.rotation;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class DirectionalAppliedPoseHistoryTest {
+ OwnedRotationTrajectory.Scope scope(){return new OwnedRotationTrajectory.Scope(new Object(),new Object(),new Object(),new Object());}
+ OwnedRotationTrajectory.Pose pose(float yaw){return new OwnedRotationTrajectory.Pose(yaw,3);}
+ @Test void originalQueueContinuesOnlyActualConsumedEndpointAtNextTick(){var t=new OwnedRotationTrajectory();var s=scope();long id=t.plan(s,8,pose(0),pose(45));var q=t.readQueued(s,8,pose(0),id,t.epoch());assertNotNull(q);assertFalse(q.appliedCurrent(9,pose(45)));t.beforeTick(s,8,pose(0));assertTrue(q.appliedCurrent(9,pose(45)));assertFalse(q.appliedCurrent(8,pose(45)));assertFalse(q.appliedCurrent(10,pose(45)));}
+ @Test void rawPostHeadPoseIsNeverTheOwnedEndpoint(){var t=new OwnedRotationTrajectory();var s=scope();long id=t.plan(s,8,pose(0),pose(45));var q=t.readQueued(s,8,pose(0),id,t.epoch());t.beforeTick(s,8,pose(0));assertFalse(q.appliedCurrent(9,pose(90)));assertFalse(q.appliedCurrent(9,null));assertTrue(q.appliedCurrent(9,pose(45)));}
+ @Test void newSameEpochTicketCannotUseOldQueuedRead(){var t=new OwnedRotationTrajectory();var s=scope();long id=t.plan(s,8,pose(0),pose(45));var q=t.readQueued(s,8,pose(0),id,t.epoch());t.plan(s,8,pose(0),pose(45));t.beforeTick(s,8,pose(0));assertFalse(q.appliedCurrent(9,pose(45)));}
+ @Test void cancellationAndForeignScopeKeepOriginalReadRevoked(){var t=new OwnedRotationTrajectory();var s=scope();long id=t.plan(s,8,pose(0),pose(45));var q=t.readQueued(s,8,pose(0),id,t.epoch());t.cancel();t.plan(scope(),8,pose(45),pose(45));assertFalse(q.appliedCurrent(9,pose(45)));}
+ @Test void actualTwoAxisHistoryAdvancesOnlyExactOwnEvents(){var h=new OwnedPoseSetterHistory();var before=h.snapshot();Object yaw=new Object(),pitch=new Object();h.begin(true,yaw,true);h.returned(true);h.begin(false,pitch,true);h.returned(false);var after=h.snapshot();assertTrue(h.advanced(before,after,List.of(yaw),List.of(pitch)));assertFalse(h.current(before));assertTrue(h.current(after));}
+ @Test void sameValueOrABAUnscopedAttemptsRemainRevoked(){var h=new OwnedPoseSetterHistory();var old=h.snapshot();h.begin(true,null,true);h.returned(true);assertFalse(h.current(old));var mid=h.snapshot();h.begin(true,null,true);h.returned(true);assertFalse(h.current(mid));assertFalse(h.advanced(old,h.snapshot(),List.of(new Object(),new Object()),List.of()));}
+ @Test void foreignBetweenOwnSettersCannotBecomeTheOwnedPair(){var h=new OwnedPoseSetterHistory();var before=h.snapshot();Object yaw=new Object(),pitch=new Object();h.begin(true,yaw,true);h.returned(true);h.begin(false,null,true);h.returned(false);h.begin(false,pitch,true);h.returned(false);assertFalse(h.advanced(before,h.snapshot(),List.of(yaw),List.of(pitch)));}
+ @Test void recursiveFailedAndOffThreadAttemptsAreUnavailable(){var recursive=new OwnedPoseSetterHistory();recursive.begin(true,new Object(),true);recursive.begin(true,null,true);recursive.returned(true);recursive.returned(true);assertNull(recursive.snapshot());var failed=new OwnedPoseSetterHistory();failed.begin(true,null,true);assertNull(failed.snapshot());var wrongThread=new OwnedPoseSetterHistory();wrongThread.begin(true,null,false);assertNull(wrongThread.snapshot());}
+}

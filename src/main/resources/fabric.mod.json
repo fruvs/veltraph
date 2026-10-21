@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "veltraph",
+  "version": "${version}",
+  "name": "Veltraph",
+  "description": "Minecraft Fabric client mod for configurable gameplay automation, routes, building tools, and utilities.",
+  "authors": [
+    "Veltraph"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/veltraph/textures/ui/logo.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.veltraph.client.VeltraphClient"
+    ]
+  },
+  "mixins": [
+    "veltraph.mixins.json",
+    "veltraph-builder.mixins.json",
+    "veltraph-capture.mixins.json",
+    "veltraph-greenhouse-diagnostic.mixins.json",
+    "veltraph-visitor-history.mixins.json",
+    "veltraph-saved-anchor-command.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

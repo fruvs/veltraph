@@ -1,0 +1,9 @@
+package dev.veltraph.client.chocolate;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/** STAGED ONLY: demonstrates the H queue ACK-before-timeout edge with a genuinely fresh receipt. */
+class ChocolateFactoryOriginalExpiryGuardTest {
+    private static ChocolateFactoryObservation at(long now){var o=ChocolateFactoryTest.observation(2,2,"100","new");return new ChocolateFactoryObservation(o.scope(),o.session(),o.menu(),o.screen(),o.revision(),now,o.title(),o.profileVerified(),o.cursorEmpty(),o.rows(),o.balance(),o.production(),o.capacity(),o.prestigeProgress(),o.prestigeGoal(),o.quotes(),o.targets(),o.contextBound());}
+    @Test void freshExactLateQueueReceiptCannotEscapeOriginalRequestDeadline(){var port=new ChocolateFactoryTest.Port();var rt=new ChocolateFactoryRuntime(port);assertTrue(rt.select(ChocolateFactoryTest.profile(),ChocolateFactoryTest.observation(1,1,"200","old"),"employee",ChocolateFactoryTest.n("100"),ChocolateFactoryTest.n("0"),1000));rt.tick(ChocolateFactoryTest.profile(),1000);port.observation=at(3101);rt.tick(ChocolateFactoryTest.profile(),3101);assertEquals(ChocolateFactoryRuntime.State.UNKNOWN,rt.state());assertEquals(0,rt.spent().signum());assertTrue(rt.acknowledgedUpgrades().isEmpty());rt.tick(ChocolateFactoryTest.profile(),3200);assertEquals(1,port.clicks);}
+    @Test void originalGreaterThanComparisonAdmitsExactDeadline(){var port=new ChocolateFactoryTest.Port();var rt=new ChocolateFactoryRuntime(port);assertTrue(rt.select(ChocolateFactoryTest.profile(),ChocolateFactoryTest.observation(1,1,"200","old"),"employee",ChocolateFactoryTest.n("100"),ChocolateFactoryTest.n("0"),1000));rt.tick(ChocolateFactoryTest.profile(),1000);port.observation=at(3000);rt.tick(ChocolateFactoryTest.profile(),3000);assertEquals(ChocolateFactoryRuntime.State.ACKNOWLEDGED,rt.state());assertEquals(ChocolateFactoryTest.n("100"),rt.spent());assertEquals(1,port.clicks);}
+}

@@ -1,0 +1,11 @@
+{
+  "key.veltraph.open_menu": "Open Veltraph Menu",
+  "key.veltraph.toggle_cactus": "Toggle Cactus Farm",
+  "key.veltraph.toggle_wart_crops": "Toggle Wart/Crops Farm (S-Shape)",
+  "key.veltraph.stop_all": "Stop All Automations",
+  "key.veltraph.serve_visitor": "Serve Inventory-Ready Visitor",
+  "key.veltraph.sell_bazaar_inventory": "Sell Quoted Bazaar Inventory",
+  "key.veltraph.alchemy_prepared_brew": "Run Prepared Alchemy Brew",
+  "key.veltraph.carpentry_inventory_craft": "Run Inventory Carpentry Craft",
+  "key.veltraph.bottle_buy_store": "Buy and Store Quoted Bottles"
+}

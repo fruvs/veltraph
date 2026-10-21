@@ -1,0 +1,28 @@
+package dev.veltraph.client.skills;
+
+import dev.veltraph.client.world.*;
+import org.junit.jupiter.api.Test;
+import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+class FairySoulTraversalTest {
+    private static FairySoulRouteCompiler.Plan plan(){return FairySoulRouteCompiler.compile(new BlockPos(0,70,0),List.of(
+            new FairySoulRouteCompiler.Step(FairySoulRouteCompiler.Kind.ETHER,new BlockPos(6,69,0),Direction.UP),
+            new FairySoulRouteCompiler.Step(FairySoulRouteCompiler.Kind.WALK,new BlockPos(8,70,0),null)),List.of(
+            new FairySoulRouteCompiler.Step(FairySoulRouteCompiler.Kind.WALK,new BlockPos(0,70,0),null)));}
+    static final class Port implements FairySoulTraversal.Port {
+        boolean current=true,use;long serial;Vec3 receipt,position;int starts,stops;FairySoulRouteCompiler.Hop hop;FairySoulTraversal.Motion motion=FairySoulTraversal.Motion.ACTIVE;
+        public boolean current(){return current;}public boolean start(FairySoulRouteCompiler.Hop h){hop=h;starts++;return true;}public FairySoulTraversal.Motion tick(){return motion;}
+        public boolean useDispatched(){return use;}public long receiptSerial(){return serial;}public Vec3 receiptPosition(){return receipt;}public Vec3 position(){return position;}public void stop(){stops++;}
+        void arrive(){motion=FairySoulTraversal.Motion.ARRIVED;position=hop.node().position();}
+    }
+    @Test void orderedListsShareCursorAndSourceWalkDeadline(){var p=plan();assertEquals(new BlockPos(6,70,0),p.outbound().get(1).from());assertEquals(new BlockPos(8,70,0),p.returning().getFirst().from());assertEquals(10000,p.outbound().get(1).timeoutMillis());assertEquals(10000,p.returning().getFirst().timeoutMillis());assertThrows(UnsupportedOperationException.class,()->p.outbound().clear());}
+    @Test void nativeDispatchAndFreshMatchingReceiptAreBothRequired(){var port=new Port();var r=new FairySoulTraversal(port,plan());port.serial=10;port.receipt=new Vec3(6.5,70,.5);r.tick(0);port.arrive();r.tick(1);assertEquals(0,r.index());port.use=true;r.tick(2);assertEquals(0,r.index());port.serial=11;r.tick(3);assertEquals(1,r.index());}
+    @Test void staleReceiptBeforeUseCannotBecomeFresh(){var port=new Port();var r=new FairySoulTraversal(port,plan());r.tick(0);port.serial=1;port.receipt=port.hop.node().position();r.tick(1);port.use=true;port.arrive();r.tick(2);assertEquals(0,r.index());port.serial=2;r.tick(3);assertEquals(1,r.index());}
+    @Test void receiptThatArrivesImmediatelyBeforeDispatchIsStillStale(){var p=new Port();var r=new FairySoulTraversal(p,plan());r.tick(0);p.use=true;p.serial=1;p.receipt=p.hop.node().position();p.arrive();r.tick(1);assertEquals(0,r.index());p.serial=2;r.tick(2);assertEquals(1,r.index());}
+    @Test void acknowledgedInteractionAndPhysicalReturnStayInSameOwner(){var port=new Port();var r=new FairySoulTraversal(port,plan());r.tick(0);port.use=true;r.tick(1);port.arrive();port.serial++;port.receipt=port.position;r.tick(2);port.use=false;port.motion=FairySoulTraversal.Motion.ACTIVE;r.tick(3);port.arrive();r.tick(4);r.tick(5);assertEquals(FairySoulTraversal.Phase.COLLECTING,r.phase());assertFalse(r.acknowledge());assertTrue(r.interactionRequested());assertFalse(r.interactionRequested());assertTrue(r.acknowledge());assertFalse(r.acknowledge());port.motion=FairySoulTraversal.Motion.ACTIVE;r.tick(6);assertEquals(new BlockPos(8,70,0),port.hop.from());port.arrive();r.tick(7);r.tick(8);assertEquals(FairySoulTraversal.Phase.COMPLETE,r.phase());assertEquals(3,port.starts);assertTrue(r.acknowledged());}
+    @Test void wrongLandingRejectsAndCannotCreditLateMessage(){var port=new Port();var r=new FairySoulTraversal(port,plan());r.tick(0);port.use=true;r.tick(1);port.serial=1;port.receipt=new Vec3(9,70,0);r.tick(2);assertEquals(FairySoulTraversal.Phase.FAILED,r.phase());assertFalse(r.acknowledge());assertFalse(r.interactionRequested());}
+    @Test void sourceWalkTimeoutIsPerHopAndScopeFailureStops(){var walk=FairySoulRouteCompiler.compile(new BlockPos(0,70,0),List.of(new FairySoulRouteCompiler.Step(FairySoulRouteCompiler.Kind.WALK,new BlockPos(2,70,0),null)),List.of(new FairySoulRouteCompiler.Step(FairySoulRouteCompiler.Kind.WALK,new BlockPos(0,70,0),null)));var p=new Port();var r=new FairySoulTraversal(p,walk);r.tick(500);r.tick(10501);assertEquals(FairySoulTraversal.Phase.FAILED,r.phase());assertEquals(1,p.starts);var other=new FairySoulTraversal(p,walk);p.current=false;other.tick(0);assertEquals(FairySoulTraversal.Phase.FAILED,other.phase());assertEquals(1,p.starts);}
+    @Test void cancellationIsTerminalAndLateReceiptCannotRestart(){var p=new Port();var r=new FairySoulTraversal(p,plan());r.tick(0);r.cancel();p.use=true;p.serial++;p.receipt=p.hop.node().position();p.arrive();r.tick(1);assertEquals(FairySoulTraversal.Phase.CANCELLED,r.phase());assertEquals(1,p.starts);assertFalse(r.acknowledge());}
+    @Test void declaredSchemaRefusesUnsupportedOrMissingReturnWithoutChangingClaimIdentity(){String raw="{\"HUB\":[{\"position\":[8,70,0],\"start\":[0,70,0],\"outbound\":[{\"kind\":\"ETHER\",\"target\":[6,69,0],\"face\":\"UP\"},{\"kind\":\"WALK\",\"target\":[8,70,0]}],\"return\":[{\"kind\":\"WALK\",\"target\":[0,70,0]}]}]}";var descriptors=FairySoulCatalog.descriptors(raw);assertEquals(FairySoulCatalog.parse("{\"HUB\":[[8,70,0]]}").getFirst(),descriptors.getFirst().soul());assertEquals(plan(),descriptors.getFirst().route());assertThrows(IllegalArgumentException.class,()->FairySoulCatalog.descriptors(raw.replace("ETHER","FLY")));assertThrows(RuntimeException.class,()->FairySoulCatalog.descriptors(raw.replace("\"return\"","\"missing\"")));assertThrows(RuntimeException.class,()->FairySoulCatalog.descriptors(raw.replace(",\"face\":\"UP\"","")));}
+}
